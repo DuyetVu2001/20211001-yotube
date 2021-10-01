@@ -4,6 +4,7 @@ import { CgMenuGridO } from 'react-icons/cg';
 import { BsBell } from 'react-icons/bs';
 import Avatar from '../public/avatar.jpg';
 import TopNavIcon from './TopNavIcon';
+import Image from 'next/image';
 
 export default function TopNav() {
 	return (
@@ -12,11 +13,11 @@ export default function TopNav() {
 			<div className="flex-center">
 				<TopNavIcon className="pt-10" Icon={FaBars} />
 
-				<div className="flex items-end ml-2">
+				<div className="flex ml-2">
 					<FaYoutube className="relative text-red-500 text-3xl" />
-					<h1 className="text-2xl font-bold">
+					<h1 className="text-xl font-semibold tracking-[-2px]">
 						YouTube{' '}
-						<span className="absolute text-sm font-normal text-gray-500">
+						<span className="absolute top-[8px] text-xs font-normal tracking-[0] text-gray">
 							vn
 						</span>
 					</h1>
@@ -26,14 +27,14 @@ export default function TopNav() {
 			{/* MID */}
 			<div className="flex-center">
 				{/* SEARCH */}
-				<div className="flex-center mr-2 h-10 border">
+				<div className="flex-center mr-2 h-10 border border-gray-400">
 					<input
-						className="w-[600px] ml-2 outline-none bg-transparent"
+						className="w-[560px] ml-2 outline-none bg-transparent"
 						type="text"
 						placeholder="Search"
 					/>
 					<FaRegKeyboard />
-					<div className="flex-center justify-center ml-2 h-full w-14 border-l border-gray-600 bg-gray-200">
+					<div className="flex-center justify-center ml-3 h-full w-16 border-l border-gray-400 bg-gray-50">
 						<AiOutlineSearch />
 					</div>
 				</div>
@@ -49,8 +50,13 @@ export default function TopNav() {
 				</div>
 				<TopNavIcon Icon={CgMenuGridO} />
 				<TopNavIcon Icon={BsBell} />
-				<div className="ml-3 rounded-full overflow-hidden">
-					<img className="w-8 h-8" src={Avatar} alt="avatar" />
+				<div className="relative w-8 h-8 ml-3">
+					<Image
+						className="rounded-full"
+						src={Avatar}
+						alt="avatar"
+						layout="fill"
+					/>
 				</div>
 			</div>
 		</div>

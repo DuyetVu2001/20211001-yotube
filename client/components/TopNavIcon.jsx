@@ -6,7 +6,7 @@ export default function TopNavIcon({ Icon, bg }) {
 	return (
 		<div
 			className={`flex-center justify-center mx-1 w-10 h-10 rounded-full ${
-				isBackground ? 'bg-gray-200' : bg && 'bg-gray-100'
+				isBackground ? 'bg-gray-200' : bg && 'bg-gray-50'
 			}`}
 			onMouseDown={() => setIsBackground(true)}
 			onMouseUp={() => setIsBackground(false)}

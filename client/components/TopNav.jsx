@@ -29,7 +29,7 @@ export default function TopNav() {
 				{/* SEARCH */}
 				<div className="flex-center mr-2 h-10 border border-gray-400">
 					<input
-						className="w-[560px] ml-2 outline-none bg-transparent"
+						className="w-[560px] mx-2 outline-none bg-transparent"
 						type="text"
 						placeholder="Search"
 					/>

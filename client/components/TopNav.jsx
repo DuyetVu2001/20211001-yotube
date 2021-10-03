@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 export default function TopNav() {
 	return (
-		<div className="flex-center justify-between p-2">
+		<div className="sticky top-0 left-0 right-0 z-40 h-nav flex-center justify-between p-2">
 			{/* LEFT */}
 			<div className="flex-center">
 				<TopNavIcon className="pt-10" Icon={FaBars} />

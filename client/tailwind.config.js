@@ -7,6 +7,9 @@ module.exports = {
 			colors: {
 				'text-gray': '#606060',
 			},
+			spacing: {
+				nav: '56px',
+			},
 		},
 	},
 	variants: {

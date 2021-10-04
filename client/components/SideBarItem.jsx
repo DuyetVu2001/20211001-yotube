@@ -18,7 +18,7 @@ export default function SideBarItem({ large, active, Icon, image, title }) {
 			{/* LARGE SCREEN */}
 			{large && (
 				<div
-					className={`flex items-center w-full h-10 cursor-pointer ${
+					className={`flex items-center w-full h-10 pl-6 cursor-pointer ${
 						active ? 'bg-[#E5E5E5]' : 'hover:bg-[#0000000d]'
 					}`}
 				>
@@ -31,7 +31,7 @@ export default function SideBarItem({ large, active, Icon, image, title }) {
 							</div>
 						)}
 					</div>
-					<p className="flex-1 ml-2 font-medium text-sm">{title}</p>
+					<p className="flex-1 ml-2 text-sm">{title}</p>
 				</div>
 			)}
 		</>

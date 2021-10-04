@@ -5,13 +5,19 @@ import { BsBell } from 'react-icons/bs';
 import Avatar from '../public/avatar.jpg';
 import TopNavIcon from './TopNavIcon';
 import Image from 'next/image';
+import { useContext } from 'react';
+import { IsDisplaySideBarContext } from '../context/IsDisplaySideBarContext';
 
 export default function TopNav() {
+	const { toggleIsDisplay } = useContext(IsDisplaySideBarContext);
+
 	return (
-		<div className="sticky top-0 left-0 right-0 z-40 h-nav flex-center justify-between p-2">
+		<div className="sticky top-0 left-0 right-0 z-40 h-nav flex-center justify-between pl-3 pr-10">
 			{/* LEFT */}
 			<div className="flex-center">
-				<TopNavIcon className="pt-10" Icon={FaBars} />
+				<div onClick={() => toggleIsDisplay()}>
+					<TopNavIcon className="pt-10" Icon={FaBars} />
+				</div>
 
 				<div className="flex ml-2">
 					<FaYoutube className="relative text-red-500 text-3xl" />
@@ -29,7 +35,7 @@ export default function TopNav() {
 				{/* SEARCH */}
 				<div className="flex-center mr-2 h-10 border border-gray-400">
 					<input
-						className="w-[560px] mx-2 outline-none bg-transparent"
+						className="w-[530px] mx-2 outline-none bg-transparent"
 						type="text"
 						placeholder="Search"
 					/>

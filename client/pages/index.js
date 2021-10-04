@@ -3,7 +3,7 @@ import TopNav from '../components/TopNav';
 
 export default function Home() {
 	return (
-		<div className="">
+		<div className="bg-[#F9F9F9]">
 			<TopNav />
 			<SideBar />
 		</div>

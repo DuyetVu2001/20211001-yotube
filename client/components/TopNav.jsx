@@ -1,15 +1,27 @@
-import { FaBars, FaMicrophone, FaRegKeyboard, FaYoutube } from 'react-icons/fa';
-import { AiOutlineSearch, AiOutlineVideoCameraAdd } from 'react-icons/ai';
-import { CgMenuGridO } from 'react-icons/cg';
-import { BsBell } from 'react-icons/bs';
-import Avatar from '../public/avatar.jpg';
-import TopNavIcon from './TopNavIcon';
 import Image from 'next/image';
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
+import {
+	AiOutlinePlaySquare,
+	AiOutlineSearch,
+	AiOutlineVideoCameraAdd,
+} from 'react-icons/ai';
+import { BsBell } from 'react-icons/bs';
+import { CgMenuGridO } from 'react-icons/cg';
+import { FaBars, FaMicrophone, FaRegKeyboard, FaYoutube } from 'react-icons/fa';
 import { IsDisplaySideBarContext } from '../context/IsDisplaySideBarContext';
+import useClickOutside from '../hooks/useClickOutside';
+import Avatar from '../public/avatar.jpg';
+import SideBarItem from './SideBarItem';
+import TopNavIcon from './TopNavIcon';
 
 export default function TopNav() {
 	const { toggleIsDisplay } = useContext(IsDisplaySideBarContext);
+	const videoRef = useRef(null);
+	const menuRef = useRef(null);
+	const bellRef = useRef(null);
+	const [videoDisplay, setVideoDisplay] = useClickOutside(videoRef);
+	const [menuDisplay, setMenuDisplay] = useClickOutside(menuRef);
+	const [bellDisplay, setBellDisplay] = useClickOutside(bellRef);
 
 	return (
 		<div className="sticky top-0 left-0 right-0 z-40 h-nav flex-center justify-between pl-3 pr-10">
@@ -51,11 +63,94 @@ export default function TopNav() {
 
 			{/* RIGHT */}
 			<div className="flex-center">
-				<div className="">
-					<TopNavIcon Icon={AiOutlineVideoCameraAdd} />
+				<div ref={videoRef} className="relative">
+					<div onMouseUp={() => setVideoDisplay(!videoDisplay)}>
+						<TopNavIcon Icon={AiOutlineVideoCameraAdd} />
+					</div>
+
+					{videoDisplay && (
+						<div className="absolute left-0 w-[180px] py-2 bg-white shadow">
+							<SideBarItem
+								large
+								pl="sm"
+								space="sm"
+								Icon={AiOutlinePlaySquare}
+								title="Go live"
+							/>
+							<SideBarItem
+								large
+								pl="sm"
+								space="sm"
+								Icon={AiOutlinePlaySquare}
+								title="Upload video"
+							/>
+						</div>
+					)}
 				</div>
-				<TopNavIcon Icon={CgMenuGridO} />
-				<TopNavIcon Icon={BsBell} />
+
+				<div ref={menuRef} className="relative">
+					<div onMouseUp={() => setMenuDisplay(!menuDisplay)}>
+						<TopNavIcon Icon={CgMenuGridO} />
+					</div>
+
+					{menuDisplay && (
+						<div className="absolute right-0 w-[220px] py-2 bg-white shadow">
+							<SideBarItem
+								large
+								pl="sm "
+								color="red"
+								space="sm"
+								Icon={AiOutlinePlaySquare}
+								title="Go live"
+							/>
+							<div className="h-[1px] my-2 bg-[#ddd]" />
+							<SideBarItem
+								large
+								pl="sm "
+								color="red"
+								space="sm"
+								Icon={AiOutlinePlaySquare}
+								title="Go live"
+							/>
+							<SideBarItem
+								large
+								pl="sm "
+								color="red"
+								space="sm"
+								Icon={AiOutlinePlaySquare}
+								title="Upload video"
+							/>
+							<div className="h-[1px] my-2 bg-[#ddd]" />
+							<SideBarItem
+								large
+								pl="sm "
+								color="red"
+								space="sm"
+								Icon={AiOutlinePlaySquare}
+								title="Go live"
+							/>
+							<SideBarItem
+								large
+								pl="sm "
+								color="red"
+								space="sm"
+								Icon={AiOutlinePlaySquare}
+								title="Upload video"
+							/>
+						</div>
+					)}
+				</div>
+
+				<div ref={bellRef} className="relative">
+					<div onMouseUp={() => seBellDisplay(!bellDisplay)}>
+						<TopNavIcon Icon={BsBell} />
+					</div>
+
+					{bellDisplay && (
+						<div className="absolute left-0 w-[470px] py-2 bg-white shadow"></div>
+					)}
+				</div>
+
 				<div className="relative w-8 h-8 ml-3">
 					<Image
 						className="rounded-full"

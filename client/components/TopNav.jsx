@@ -11,6 +11,7 @@ import { FaBars, FaMicrophone, FaRegKeyboard, FaYoutube } from 'react-icons/fa';
 import { IsDisplaySideBarContext } from '../context/IsDisplaySideBarContext';
 import useClickOutside from '../hooks/useClickOutside';
 import Avatar from '../public/avatar.jpg';
+import NotificationItem from './NotificationItem';
 import SideBarItem from './SideBarItem';
 import TopNavIcon from './TopNavIcon';
 
@@ -35,7 +36,7 @@ export default function TopNav() {
 					<FaYoutube className="relative text-red-500 text-3xl" />
 					<h1 className="text-xl font-semibold tracking-[-2px]">
 						YouTube{' '}
-						<span className="absolute top-[8px] text-xs font-normal tracking-[0] text-gray">
+						<span className="absolute top-[8px] text-xs font-normal tracking-[0] text-gray-color">
 							vn
 						</span>
 					</h1>
@@ -142,12 +143,79 @@ export default function TopNav() {
 				</div>
 
 				<div ref={bellRef} className="relative">
-					<div onMouseUp={() => seBellDisplay(!bellDisplay)}>
+					<div onMouseUp={() => setBellDisplay(!bellDisplay)}>
 						<TopNavIcon Icon={BsBell} />
 					</div>
 
 					{bellDisplay && (
-						<div className="absolute left-0 w-[470px] py-2 bg-white shadow"></div>
+						<div className="absolute right-0 w-[478px] bg-white shadow">
+							<div className="flex items-center justify-between h-12 shadow">
+								<p className="ml-4 text-lg font-medium">Notifications</p>
+								<TopNavIcon Icon={AiOutlinePlaySquare} />
+							</div>
+							<div className="max-h-[590px] overflow-auto">
+								<NotificationItem
+									channelImg={Avatar}
+									content="dsf dsf sdf sdf sdf dsf sdf dsf sdf d"
+									time="8"
+									thumbnail={Avatar}
+								/>
+								<NotificationItem
+									channelImg={Avatar}
+									content="dsf dsf sdf sdf sdf dsf sdf dsf sdf d"
+									time="8"
+									thumbnail={Avatar}
+								/>
+								<NotificationItem
+									channelImg={Avatar}
+									content="dsf dsf sdf sdf sdf dsf sdf dsf sdf d"
+									time="8"
+									thumbnail={Avatar}
+								/>
+								<NotificationItem
+									channelImg={Avatar}
+									content="dsf dsf sdf sdf sdf dsf sdf dsf sdf d sdf sdf dsf sdf dsf sdf d sdf sdf dsf sdf dsf sdf d"
+									time="8"
+									thumbnail={Avatar}
+								/>
+								<NotificationItem
+									channelImg={Avatar}
+									content="dsf dsf sdf sdf sdf dsf sdf dsf sdf d sdf sdf dsf sdf dsf sdf d sdf sdf dsf sdf dsf sdf d"
+									time="8"
+									thumbnail={Avatar}
+								/>
+								<NotificationItem
+									channelImg={Avatar}
+									content="dsf dsf sdf sdf sdf dsf sdf dsf sdf d sdf sdf dsf sdf dsf sdf d sdf sdf dsf sdf dsf sdf d"
+									time="8"
+									thumbnail={Avatar}
+								/>
+								<NotificationItem
+									channelImg={Avatar}
+									content="dsf dsf sdf sdf sdf dsf sdf dsf sdf d"
+									time="8"
+									thumbnail={Avatar}
+								/>
+								<NotificationItem
+									channelImg={Avatar}
+									content="dsf dsf sdf sdf sdf dsf sdf dsf sdf d"
+									time="8"
+									thumbnail={Avatar}
+								/>
+								<NotificationItem
+									channelImg={Avatar}
+									content="dsf dsf sdf sdf sdf dsf sdf dsf sdf d"
+									time="8"
+									thumbnail={Avatar}
+								/>
+								<NotificationItem
+									channelImg={Avatar}
+									content="dsf dsf sdf sdf sdf dsf sdf dsf sdf d"
+									time="8"
+									thumbnail={Avatar}
+								/>
+							</div>
+						</div>
 					)}
 				</div>
 

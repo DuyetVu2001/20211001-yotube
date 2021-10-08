@@ -13,7 +13,7 @@
 	.flex-center {
 		@apply flex items-center;
 	}
-	.text-gray {
+	.text-gray-color {
 		@apply text-[#606060];
 	}
 	.anh-ban {

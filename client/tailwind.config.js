@@ -5,7 +5,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				'text-gray': '#606060',
+				// 'text-gray': '#606060',
 			},
 			spacing: {
 				nav: '56px',

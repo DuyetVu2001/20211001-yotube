@@ -18,39 +18,25 @@ export default function Home() {
 					isDisplay ? 'ml-[240px] px-20' : 'ml-[72px] px-4'
 				} pt-6 bg-[#F9F9F9]`}
 			>
-				<div
-					className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} w-[25%] mb-10 px-2`}
-				>
+				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
 					<VideoItem />
 				</div>
-				<div
-					className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} w-[25%] mb-10 px-2`}
-				>
+				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
 					<VideoItem />
 				</div>
-				<div
-					className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} w-[25%] mb-10 px-2`}
-				>
+				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
 					<VideoItem />
 				</div>
-				<div
-					className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} w-[25%] mb-10 px-2`}
-				>
+				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
 					<VideoItem />
 				</div>
-				<div
-					className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} w-[25%] mb-10 px-2`}
-				>
+				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
 					<VideoItem />
 				</div>
-				<div
-					className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} w-[25%] mb-10 px-2`}
-				>
+				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
 					<VideoItem />
 				</div>
-				<div
-					className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} w-[25%] mb-10 px-2`}
-				>
+				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
 					<VideoItem />
 				</div>
 			</div>

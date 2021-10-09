@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer utilities {
-	.flex-center {
-		display: flex;
-		align-items: center;
+@layer utilities {
+	.aspect-16-9 {
+		aspect-ratio: 16/9;
 	}
-} */
+}
 
 @layer components {
 	.flex-center {

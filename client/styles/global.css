@@ -16,6 +16,9 @@
 	.text-gray-color {
 		@apply text-[#606060];
 	}
+	.text-blue-color {
+		@apply text-[#065FD4];
+	}
 	.anh-ban {
 		@apply w-20 h-20 ml-40 mt-3 text-center cursor-pointer bg-green-400;
 	}

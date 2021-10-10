@@ -12,6 +12,7 @@ import { FaBars, FaMicrophone, FaRegKeyboard, FaYoutube } from 'react-icons/fa';
 import { IsDisplaySideBarContext } from '../context/IsDisplaySideBarContext';
 import useClickOutside from '../hooks/useClickOutside';
 import Avatar from '../public/avatar.jpg';
+import Logo from '../public/logo.png';
 import NotificationItem from './NotificationItem';
 import SideBarItem from './SideBarItem';
 import TopNavIcon from './TopNavIcon';
@@ -36,14 +37,23 @@ export default function TopNav() {
 					<TopNavIcon className="pt-10" Icon={FaBars} />
 				</div>
 
-				<div className="flex ml-2">
+				<div className="flex">
+					{/* <div className="flex ml-2">
 					<FaYoutube className="relative text-red-500 text-3xl" />
 					<h1 className="text-xl font-semibold tracking-[-2px]">
 						YouTube{' '}
 						<span className="absolute top-[8px] text-xs font-normal tracking-[0] text-gray-color">
 							vn
 						</span>
-					</h1>
+					</h1> */}
+					<div className="relative w-[90px] h-[20px] ml-3">
+						<Image
+							className="object-cover"
+							src={Logo}
+							alt="avatar"
+							layout="fill"
+						/>
+					</div>
 				</div>
 			</div>
 

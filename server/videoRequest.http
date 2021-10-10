@@ -1,0 +1,18 @@
+GET http://localhost:4000/video
+
+###
+POST http://localhost:4000/video
+Content-Type: application/json
+
+{
+  "title": "Beijing X7 1",
+  "video": "https://www.youtube.com/watch?v=vKPm8tQ1izo&ab_channel=Tr%E1%BA%AFngAuto"
+}
+
+###
+DELETE  http://localhost:4000/video
+Content-Type: application/json
+
+{
+  "id": "616266a03e0dc45edacf1f5e"
+}

@@ -22,3 +22,12 @@
 		@apply w-20 h-20 ml-40 mt-3 text-center cursor-pointer bg-green-400;
 	}
 }
+
+/* .tat::-webkit-scrollbar {
+	display: none;
+}
+
+.tat {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+} */

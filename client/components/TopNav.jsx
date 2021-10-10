@@ -16,6 +16,7 @@ import Logo from '../public/logo.png';
 import NotificationItem from './NotificationItem';
 import SideBarItem from './SideBarItem';
 import TopNavIcon from './TopNavIcon';
+import Link from 'next/link';
 
 export default function TopNav() {
 	const { toggleIsDisplay } = useContext(IsDisplaySideBarContext);
@@ -37,7 +38,7 @@ export default function TopNav() {
 					<TopNavIcon className="pt-10" Icon={FaBars} />
 				</div>
 
-				<div className="flex">
+				<div>
 					{/* <div className="flex ml-2">
 					<FaYoutube className="relative text-red-500 text-3xl" />
 					<h1 className="text-xl font-semibold tracking-[-2px]">
@@ -46,14 +47,18 @@ export default function TopNav() {
 							vn
 						</span>
 					</h1> */}
-					<div className="relative w-[90px] h-[20px] ml-3">
-						<Image
-							className="object-cover"
-							src={Logo}
-							alt="avatar"
-							layout="fill"
-						/>
-					</div>
+					<Link href="/">
+						<a>
+							<div className="relative w-[90px] h-[20px] ml-3">
+								<Image
+									className="object-cover"
+									src={Logo}
+									alt="avatar"
+									layout="fill"
+								/>
+							</div>
+						</a>
+					</Link>
 				</div>
 			</div>
 

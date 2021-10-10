@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useContext } from 'react';
 import Categories from '../components/Categories';
 import SideBar from '../components/SideBar';
@@ -33,31 +34,67 @@ export default function Home() {
 				} bg-[#F9F9F9] pt-6`}
 			>
 				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
-					<VideoItem />
+					<Link href="/detail">
+						<a>
+							<VideoItem />
+						</a>
+					</Link>
 				</div>
 				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
-					<VideoItem />
+					<Link href="/detail">
+						<a>
+							<VideoItem />
+						</a>
+					</Link>
 				</div>
 				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
-					<VideoItem />
+					<Link href="/detail">
+						<a>
+							<VideoItem />
+						</a>
+					</Link>
 				</div>
 				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
-					<VideoItem />
+					<Link href="/detail">
+						<a>
+							<VideoItem />
+						</a>
+					</Link>
 				</div>
 				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
-					<VideoItem />
+					<Link href="/detail">
+						<a>
+							<VideoItem />
+						</a>
+					</Link>
 				</div>
 				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
-					<VideoItem />
+					<Link href="/detail">
+						<a>
+							<VideoItem />
+						</a>
+					</Link>
 				</div>
 				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
-					<VideoItem />
+					<Link href="/detail">
+						<a>
+							<VideoItem />
+						</a>
+					</Link>
 				</div>
 				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
-					<VideoItem />
+					<Link href="/detail">
+						<a>
+							<VideoItem />
+						</a>
+					</Link>
 				</div>
 				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
-					<VideoItem />
+					<Link href="/detail">
+						<a>
+							<VideoItem />
+						</a>
+					</Link>
 				</div>
 				<div className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}>
 					<VideoItem />

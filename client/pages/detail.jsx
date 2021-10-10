@@ -1,6 +1,7 @@
 import SideBar from '../components/SideBar';
 import TopNav from '../components/TopNav';
 import VideoItem from '../components/VideoItem';
+import Categories from '../components/Categories';
 
 export default function Detail() {
 	return (
@@ -24,6 +25,9 @@ export default function Detail() {
 						</div>
 					</div>
 					<div className="w-[402px]">
+						<div className="w-full overflow-auto">
+							<Categories sm />
+						</div>
 						<VideoItem row />
 						<VideoItem row />
 						<VideoItem row />

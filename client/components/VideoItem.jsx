@@ -4,7 +4,9 @@ import TopNavIcon from './TopNavIcon';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { useState } from 'react';
 
-export default function VideoItem({ row }) {
+export default function VideoItem({ row, video }) {
+	const { title } = video;
+
 	let containerClass = '';
 	if (row) {
 		containerClass = 'flex h-[94px] mt-[10px]';
@@ -31,9 +33,7 @@ export default function VideoItem({ row }) {
 				)}
 
 				<div className="flex-1 mr-2">
-					<h3 className={`${row && 'text-sm'} leading-5 font-bold`}>
-						Lorem ipsum dolor sit amet Lordd sssum dolor sit
-					</h3>
+					<h3 className={`${row && 'text-sm'} leading-5 font-bold`}>{title}</h3>
 					<p
 						className={`pt-1 ${
 							row ? 'text-xs' : 'text-sm'

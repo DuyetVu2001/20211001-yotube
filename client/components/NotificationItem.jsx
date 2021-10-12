@@ -27,7 +27,7 @@ export default function NotificationItem({
 				</div>
 			</div>
 
-			<div className="relative w-[86px] h-[50px] border">
+			<div className="relative w-[86px] h-[50px]">
 				<Image className="w-full object-cover" src={thumbnail} layout="fill" />
 			</div>
 

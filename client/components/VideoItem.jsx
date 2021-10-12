@@ -35,7 +35,7 @@ export default function VideoItem({ row, video }) {
 				<div className="flex-1 mr-2">
 					<h3 className={`${row && 'text-sm'} leading-5 font-bold`}>{title}</h3>
 					<p
-						className={`pt-1 ${
+						className={`pt-1 dark:text-dark-text ${
 							row ? 'text-xs' : 'text-sm'
 						} text-[#606060] font-medium`}
 					>
@@ -44,7 +44,7 @@ export default function VideoItem({ row, video }) {
 					<p
 						className={`${
 							row ? 'text-xs' : 'text-sm'
-						} text-[#606060] font-medium`}
+						} text-[#606060] dark:text-dark-text font-medium`}
 					>
 						144k views
 					</p>

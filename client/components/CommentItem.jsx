@@ -18,7 +18,9 @@ export default function CommentItem() {
 			<div className="flex-1">
 				<p className="">
 					<span className="text-[13px] font-medium">Anh Ban NY</span>{' '}
-					<span className="text-xs text-gray-color">10 months ago</span>
+					<span className="text-xs text-gray-color dark:text-dark-text">
+						10 months ago
+					</span>
 				</p>
 				<div className="flex items-start">
 					<p className="flex-1 text-sm">

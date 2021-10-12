@@ -43,7 +43,7 @@ export default function DescriptionVideo() {
 			</div>
 
 			{/* SUBSCRIBED */}
-			<div className="flex justify-between h-[52px] mt-3 pl-3 border-[1px] border-[#ddd]">
+			<div className="flex justify-between h-[52px] mt-3 pl-3 border-[1px] border-[#ddd] dark:border-dark-border">
 				<div className="flex items-center">
 					<div className="relative w-9 h-9 mr-3">
 						<Image
@@ -55,14 +55,14 @@ export default function DescriptionVideo() {
 					</div>
 					<div className="">
 						<p className="font-medium text-sm">Anh Ban NY</p>
-						<p className="font-medium text-xs text-gray-color">
+						<p className="font-medium text-xs text-gray-color dark:text-dark-text">
 							200k subscribers
 						</p>
 					</div>
 				</div>
 
 				<div className="flex items-center">
-					<p className="mr-0.5 py-[8px] px-[18px] text-gray-color font-medium text-sm bg-[#0000000D]">
+					<p className="mr-0.5 py-[8px] px-[18px] text-gray-color font-medium text-sm bg-[#0000000D] dark:text-dark-text dark:bg-dark-third cursor-pointer">
 						SUBSCRIBED
 					</p>
 					<TopNavIcon Icon={BiLike} />

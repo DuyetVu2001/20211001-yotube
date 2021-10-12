@@ -13,7 +13,7 @@ export default function Detail() {
 			<TopNav />
 			{/* <SideBar /> */}
 
-			<div className="bg-[#F9F9F9]">
+			<div className="bg-[#F9F9F9] dark:bg-dark-main">
 				<div className="flex pt-6 w-[1706px] mx-auto">
 					<div className="flex-1 pr-6">
 						<div className="">
@@ -43,9 +43,9 @@ export default function Detail() {
 											layout="fill"
 										/>
 									</div>
-									<div className="flex-1 border-b-[1px] border-[#999]">
+									<div className="flex-1 border-b-[1px] border-[#999] dark:border-dark-border">
 										<input
-											className="w-full text-sm mb-1 placeholder-[#666] outline-none bg-transparent"
+											className="w-full text-sm mb-1 placeholder-[#666] dark:placeholder-dark-text outline-none bg-transparent"
 											type="text"
 											placeholder="Add a public comment..."
 										/>

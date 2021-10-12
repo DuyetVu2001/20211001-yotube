@@ -31,7 +31,7 @@ export default function TopNav() {
 	const [personalDisplay, setPersonalDisplay] = useClickOutside(personalRef);
 
 	return (
-		<div className="sticky top-0 left-0 right-0 z-40 h-nav-height flex-center justify-between pl-3 pr-10 bg-white">
+		<div className="sticky top-0 left-0 right-0 z-40 h-nav-height flex-center justify-between pl-3 pr-10 bg-white dark:bg-dark-second">
 			{/* LEFT */}
 			<div className="flex-center">
 				<div onClick={() => toggleIsDisplay()}>
@@ -65,14 +65,14 @@ export default function TopNav() {
 			{/* MID */}
 			<div className="flex-center">
 				{/* SEARCH */}
-				<div className="flex-center mr-2 h-10 border border-gray-400">
+				<div className="flex-center mr-2 h-10 border border-gray-400 dark:border-dark-border dark:bg-dark-main">
 					<input
 						className="w-[530px] mx-2 outline-none bg-transparent"
 						type="text"
 						placeholder="Search"
 					/>
 					<FaRegKeyboard />
-					<div className="flex-center justify-center ml-3 h-full w-16 border-l border-gray-400 bg-gray-50">
+					<div className="flex-center justify-center ml-3 h-full w-16 border-l border-gray-400 dark:border-dark-border bg-gray-50 dark:bg-dark-third">
 						<AiOutlineSearch />
 					</div>
 				</div>
@@ -114,7 +114,7 @@ export default function TopNav() {
 					</div>
 
 					{videoDisplay && (
-						<div className="absolute left-0 w-[180px] py-2 bg-white shadow">
+						<div className="absolute left-0 w-[180px] py-2 bg-white dark:bg-dark-second shadow">
 							<SideBarItem
 								large
 								pl="sm"
@@ -139,7 +139,7 @@ export default function TopNav() {
 					</div>
 
 					{menuDisplay && (
-						<div className="absolute right-0 w-[220px] py-2 bg-white shadow">
+						<div className="absolute right-0 w-[220px] py-2 bg-white dark:bg-dark-second shadow">
 							<SideBarItem
 								large
 								pl="sm"
@@ -148,7 +148,7 @@ export default function TopNav() {
 								Icon={AiOutlinePlaySquare}
 								title="Go live"
 							/>
-							<div className="h-[1px] my-2 bg-[#ddd]" />
+							<div className="h-[1px] my-2 bg-[#ddd] dark:bg-dark-border" />
 							<SideBarItem
 								large
 								pl="sm"
@@ -165,7 +165,7 @@ export default function TopNav() {
 								Icon={AiOutlinePlaySquare}
 								title="Upload video"
 							/>
-							<div className="h-[1px] my-2 bg-[#ddd]" />
+							<div className="h-[1px] my-2 bg-[#ddd] dark:bg-dark-border" />
 							<SideBarItem
 								large
 								pl="sm"
@@ -192,7 +192,7 @@ export default function TopNav() {
 					</div>
 
 					{bellDisplay && (
-						<div className="absolute right-0 w-[478px] bg-white shadow">
+						<div className="absolute right-0 w-[478px] bg-white dark:bg-dark-second shadow">
 							<div className="flex items-center justify-between h-12 shadow">
 								<p className="ml-4 text-lg font-medium">Notifications</p>
 								<TopNavIcon Icon={AiOutlinePlaySquare} />
@@ -276,7 +276,7 @@ export default function TopNav() {
 					</div>
 
 					{personalDisplay && (
-						<div className="absolute top-9 right-0 w-[300px] pb-2 bg-white shadow">
+						<div className="absolute top-9 right-0 w-[300px] pb-2 bg-white dark:bg-dark-second shadow">
 							<div className="p-4 flex items-center">
 								<div className="relative w-10 h-10 mr-4">
 									<Image
@@ -294,7 +294,7 @@ export default function TopNav() {
 									</p>
 								</div>
 							</div>
-							<div className="h-[1px] mb-2 bg-[#ddd]" />
+							<div className="h-[1px] mb-2 bg-[#ddd] dark:bg-dark-border" />
 							<SideBarItem
 								large
 								pl="sm"
@@ -316,7 +316,7 @@ export default function TopNav() {
 								Icon={AiOutlinePlaySquare}
 								title="Go live"
 							/>
-							<div className="h-[1px] my-2 bg-[#ddd]" />
+							<div className="h-[1px] my-2 bg-[#ddd] dark:bg-dark-border" />
 							<SideBarItem
 								large
 								pl="sm"
@@ -338,7 +338,7 @@ export default function TopNav() {
 								Icon={AiOutlinePlaySquare}
 								title="Go live"
 							/>
-							<div className="h-[1px] my-2 bg-[#ddd]" />
+							<div className="h-[1px] my-2 bg-[#ddd] dark:bg-dark-border" />
 							<SideBarItem
 								large
 								pl="sm"

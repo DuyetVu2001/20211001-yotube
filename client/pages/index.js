@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { useContext, useState } from 'react';
 import Categories from '../components/Categories';
@@ -11,6 +12,12 @@ export default function Home({ videos: videoList }) {
 	const { isDisplay } = useContext(IsDisplaySideBarContext);
 	const [videos, setVideos] = useState([...videoList]);
 
+	// Theme
+	const { theme, setTheme } = useTheme();
+	const toggleTheme = () => {
+		setTheme(theme === 'dark' ? 'light' : 'dark');
+	};
+
 	return (
 		<div className="">
 			<TopNav />
@@ -19,7 +26,7 @@ export default function Home({ videos: videoList }) {
 			<div
 				className={`fixed right-0 ${
 					isDisplay ? 'left-[240px]' : 'left-[72px]'
-				} z-30 py-3 border-t-[1px] border-b-[1px] border-[#ddd] bg-white`}
+				} z-30 py-3 border-t-[1px] border-b-[1px] border-[#ddd] dark:border-dark-border bg-white dark:bg-dark-second`}
 			>
 				{/* <div className="pl-6 overflow-auto">
 					<Categories />
@@ -31,9 +38,9 @@ export default function Home({ videos: videoList }) {
 
 			{/* LIST VIDEOS */}
 			<div
-				className={`flex flex-wrap mt-nav-height ${
+				className={`flex flex-wrap mt-nav-height pt-6 ${
 					isDisplay ? 'ml-[240px] px-20' : 'ml-[72px] px-4'
-				} bg-[#F9F9F9] pt-6`}
+				} bg-[#F9F9F9] dark:bg-dark-main`}
 			>
 				{videos.map((video, index) => (
 					<div
@@ -47,6 +54,9 @@ export default function Home({ videos: videoList }) {
 						</Link>
 					</div>
 				))}
+				<button className="px-4 text-white bg-black" onClick={toggleTheme}>
+					cai nut
+				</button>
 			</div>
 		</div>
 	);

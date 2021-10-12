@@ -8,7 +8,7 @@ module.exports = {
 				// 'text-gray': '#606060',
 			},
 			spacing: {
-				nav: '56px',
+				'nav-height': '56px',
 			},
 		},
 	},

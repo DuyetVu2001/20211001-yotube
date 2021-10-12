@@ -11,7 +11,7 @@ export default function SideBar() {
 	const { isDisplay } = useContext(IsDisplaySideBarContext);
 
 	return (
-		<div className="fixed top-nav left-0 bottom-0">
+		<div className="fixed top-nav-height left-0 bottom-0">
 			{/* SMALL SCREEN */}
 			{!isDisplay && (
 				<div className="w-[72px]">

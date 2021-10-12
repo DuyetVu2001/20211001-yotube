@@ -31,7 +31,7 @@ export default function Home({ videos: videoList }) {
 
 			{/* LIST VIDEOS */}
 			<div
-				className={`flex flex-wrap mt-[60px] ${
+				className={`flex flex-wrap mt-nav-height ${
 					isDisplay ? 'ml-[240px] px-20' : 'ml-[72px] px-4'
 				} bg-[#F9F9F9] pt-6`}
 			>

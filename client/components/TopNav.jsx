@@ -31,7 +31,7 @@ export default function TopNav() {
 	const [personalDisplay, setPersonalDisplay] = useClickOutside(personalRef);
 
 	return (
-		<div className="sticky top-0 left-0 right-0 z-40 h-nav-height flex-center justify-between pl-3 pr-10 bg-white dark:bg-dark-second">
+		<div className="sticky top-0 left-0 right-0 z-40 h-nav-height flex-center justify-between pl-3 pr-10 bg-white dark:bg-dark-second opacity-[0.97]">
 			{/* LEFT */}
 			<div className="flex-center">
 				<div onClick={() => toggleIsDisplay()}>

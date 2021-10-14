@@ -24,7 +24,7 @@ export default function Home({ videos: videoList }) {
 			<SideBar />
 
 			<div
-				className={`fixed right-0 ${
+				className={`opacity-[0.97] fixed right-0 ${
 					isDisplay ? 'left-[240px]' : 'left-[72px]'
 				} z-30 py-3 border-t-[1px] border-b-[1px] border-[#ddd] dark:border-dark-border bg-white dark:bg-dark-second`}
 			>

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useTheme } from 'next-themes';
-import Link from 'next/link';
 import { useContext, useState } from 'react';
 import Categories from '../components/Categories';
 import SideBar from '../components/SideBar';
@@ -10,7 +9,7 @@ import { IsDisplaySideBarContext } from '../context/IsDisplaySideBarContext';
 
 export default function Home({ videos: videoList }) {
 	const { isDisplay } = useContext(IsDisplaySideBarContext);
-	const [videos, setVideos] = useState([...videoList]);
+	const [videos] = useState([...videoList]);
 
 	// Theme
 	const { theme, setTheme } = useTheme();
@@ -32,7 +31,7 @@ export default function Home({ videos: videoList }) {
 					<Categories />
 				</div> */}
 				<div className="pl-6">
-					<Categories />
+					<Categories />f
 				</div>
 			</div>
 
@@ -47,11 +46,7 @@ export default function Home({ videos: videoList }) {
 						key={index}
 						className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}
 					>
-						<Link href="/detail">
-							<a>
-								<VideoItem video={video} />
-							</a>
-						</Link>
+						<VideoItem video={video} />
 					</div>
 				))}
 				<button className="px-4 text-white bg-black" onClick={toggleTheme}>

@@ -6,10 +6,20 @@ const VideoScheme = new mongoose.Schema({
 		required: true,
 	},
 
-	video: {
+	videoId: {
 		type: String,
 		required: true,
 	},
+
+	// thumbnail: {
+	// 	type: String,
+	// 	required: true,
+	// },
+
+	// video: {
+	// 	type: String,
+	// 	required: true,
+	// },
 
 	// channel: {
 	// 	type: String,
@@ -21,17 +31,17 @@ const VideoScheme = new mongoose.Schema({
 	// 	required: true,
 	// },
 
-	// thumbnail: {
-	// 	type: String,
-	// 	required: true,
-	// },
-
 	// duration: {
 	// 	type: Number,
 	// 	required: true,
 	// },
 
 	// views: {
+	// 	type: Number,
+	// 	required: true,
+	// },
+
+	// type: {
 	// 	type: Number,
 	// 	required: true,
 	// },

@@ -1,11 +1,13 @@
 import Image from 'next/image';
+import { BsThreeDotsVertical } from 'react-icons/bs';
 import Avatar from '../public/avatar.jpg';
 import TopNavIcon from './TopNavIcon';
-import { BsThreeDotsVertical } from 'react-icons/bs';
-import { useState } from 'react';
+import Link from 'next/link';
 
 export default function VideoItem({ row, video }) {
-	const { title } = video;
+	const { title, videoId } = video;
+
+	console.log(videoId);
 
 	let containerClass = '';
 	if (row) {
@@ -14,12 +16,20 @@ export default function VideoItem({ row, video }) {
 
 	return (
 		<div className={containerClass}>
-			<div className="relative aspect-16-9 bg-black">
-				<Image className="object-cover" src={Avatar} layout="fill" />
-				<p className="absolute flex bottom-1 right-1 px-1 tracking-wide leading-relaxed rounded-sm text-xs font-medium text-white bg-black">
-					36:30
-				</p>
-			</div>
+			<Link href={`/video/${videoId}`}>
+				<a>
+					<div className="relative aspect-16-9 bg-black">
+						<Image
+							className="object-cover"
+							src={`https://i.ytimg.com/vi/${videoId}/sddefault.jpg`}
+							layout="fill"
+						/>
+						<p className="absolute flex bottom-1 right-1 px-1 tracking-wide leading-relaxed rounded-sm text-xs font-medium text-white bg-black">
+							36:30
+						</p>
+					</div>
+				</a>
+			</Link>
 
 			<div className={`flex items-start ${row ? 'ml-2' : 'mt-3'}`}>
 				{!row && (
@@ -33,7 +43,13 @@ export default function VideoItem({ row, video }) {
 				)}
 
 				<div className="flex-1 mr-2">
-					<h3 className={`${row && 'text-sm'} leading-5 font-bold`}>{title}</h3>
+					<Link href={`/video/${videoId}`}>
+						<a>
+							<h3 className={`${row && 'text-sm'} leading-5 font-bold`}>
+								{title}
+							</h3>
+						</a>
+					</Link>
 					<p
 						className={`pt-1 dark:text-dark-text ${
 							row ? 'text-xs' : 'text-sm'

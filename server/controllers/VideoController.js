@@ -10,6 +10,16 @@ exports.getVideos = async (_req, res) => {
 	}
 };
 
+// @ get --> /video/:videoId --> get video detail --> public
+exports.getVideo = async (req, res) => {
+	try {
+		const video = await Video.findOne({ videoId: req.params.videoId });
+		res.status(200).json({ success: true, video });
+	} catch (error) {
+		res.status(500).json({ success: false, error });
+	}
+};
+
 // @ post --> /video/ --> create video --> private
 exports.createVideo = async (req, res) => {
 	const data = req.body;
@@ -37,6 +47,21 @@ exports.deleteVideo = async (req, res) => {
 			return res
 				.status(401)
 				.json({ success: false, message: 'Delete failure!' });
+
+		res.status(200).json({ success: true });
+	} catch (error) {
+		res.status(500).json({ success: false, error });
+	}
+};
+
+// SOS
+// @ delete --> /video/delete-all --> delete ALL video --> private
+exports.deleteAllVideo = async (req, res) => {
+	const data = req.body;
+	if (!data)
+		return res.status(401).json({ success: false, message: 'Invalid data!' });
+	try {
+		await Video.deleteMany();
 
 		res.status(200).json({ success: true });
 	} catch (error) {

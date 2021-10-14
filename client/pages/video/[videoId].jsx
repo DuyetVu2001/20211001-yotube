@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import Categories from '../components/Categories';
-import CommentItem from '../components/CommentItem';
-import DescriptionVideo from '../components/DescriptionVideo';
-import TopNav from '../components/TopNav';
-import VideoItem from '../components/VideoItem';
-import Avatar from '../public/avatar.jpg';
+import Categories from '../../components/Categories';
+import CommentItem from '../../components/CommentItem';
+import DescriptionVideo from '../../components/DescriptionVideo';
+import TopNav from '../../components/TopNav';
+import VideoItem from '../../components/VideoItem';
+import Avatar from '../../public/avatar.jpg';
 
-export default function Detail() {
-	const router = useRouter();
+export default function Video() {
+	const { videoId } = useRouter().query;
 
 	return (
 		<div className="">
@@ -21,7 +21,7 @@ export default function Detail() {
 							<iframe
 								width="1280"
 								height="720"
-								src="https://www.youtube.com/embed/iORWC-hZeX8"
+								src={`https://www.youtube.com/embed/${videoId}`}
 								title="YouTube video player"
 								frameBorder="0"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -70,7 +70,7 @@ export default function Detail() {
 							row
 							video={{
 								title: 'Nothing',
-								thumbnail: 'https://i.ytimg.com/vi/aJOTlE1K90k/sddefault.jpg',
+								videoId: videoId,
 							}}
 						/>
 					</div>

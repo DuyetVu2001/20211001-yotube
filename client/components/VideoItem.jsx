@@ -5,7 +5,13 @@ import TopNavIcon from './TopNavIcon';
 import Link from 'next/link';
 
 export default function VideoItem({ row, video }) {
-	const { title, videoId } = video;
+	const {
+		title,
+		videoId,
+		user: { username, avatar },
+	} = video;
+
+	console.log(video.user.avatar);
 
 	let containerClass = '';
 	if (row) {
@@ -34,7 +40,7 @@ export default function VideoItem({ row, video }) {
 					<div className="relative w-9 h-9 mr-3">
 						<Image
 							className="object-cover rounded-full"
-							src={Avatar}
+							src={avatar || Avatar}
 							layout="fill"
 						/>
 					</div>
@@ -53,7 +59,7 @@ export default function VideoItem({ row, video }) {
 							row ? 'text-xs' : 'text-sm'
 						} text-[#606060] font-medium`}
 					>
-						Lorem ipsum dolor sit amet
+						{username}
 					</p>
 					<p
 						className={`${

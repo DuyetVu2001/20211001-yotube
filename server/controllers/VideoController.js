@@ -3,7 +3,7 @@ const Video = require('../models/Video');
 // @ get --> /video/ --> get all video --> public
 exports.getVideos = async (_req, res) => {
 	try {
-		const videos = await Video.find();
+		const videos = await Video.find().populate('user', 'username avatar');
 		res.status(200).json({ success: true, videos });
 	} catch (error) {
 		res.status(500).json({ success: false, error });
@@ -27,7 +27,7 @@ exports.createVideo = async (req, res) => {
 		return res.status(401).json({ success: false, message: 'Invalid data!' });
 
 	try {
-		const newVideo = new Video(data);
+		const newVideo = new Video({ ...data, user: req.user.id });
 		await newVideo.save();
 		res.status(200).json({ success: true });
 	} catch (error) {

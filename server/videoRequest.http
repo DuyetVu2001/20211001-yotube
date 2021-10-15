@@ -9,8 +9,20 @@ Content-Type: application/json
 Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
 
 {
-  "title": "One Direction - One Thing",
-  "videoId": "Y1xs_xPb46M"
+  "title": "K'NAAN - Wavin' Flag (Coca-Cola Celebration Mix)",
+  "videoId": "WTJSt4wP2ME"
+  # "video": "https://www.youtube.com/watch?v=vKPm8tQ1izo",
+  # "thumbnail": "https://i.ytimg.com/vi/aJOTlE1K90k/sddefault.jpg"
+}
+
+###
+POST http://localhost:4000/video
+Content-Type: application/json
+Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjk4YmY5N2M1NjVkZjVhMTU0MTVkOSIsImlhdCI6MTYzNDMwNzA3NH0.p6XNqg5YKWkVUE532xiZ6tZ2X3Xjva312THM1Y0HJt4
+
+{
+  "title": "The Kid LAROI, Justin Bieber - Stay DRUM | COVER By SUBIN",
+  "videoId": "pzMnSUQ1P2s"
   # "video": "https://www.youtube.com/watch?v=vKPm8tQ1izo",
   # "thumbnail": "https://i.ytimg.com/vi/aJOTlE1K90k/sddefault.jpg"
 }

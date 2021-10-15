@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const VideoScheme = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const VideoScheme = new Schema({
 	title: {
 		type: String,
 		required: true,
@@ -11,25 +13,11 @@ const VideoScheme = new mongoose.Schema({
 		required: true,
 	},
 
-	// thumbnail: {
-	// 	type: String,
-	// 	required: true,
-	// },
-
-	// video: {
-	// 	type: String,
-	// 	required: true,
-	// },
-
-	// channel: {
-	// 	type: String,
-	// 	required: true,
-	// },
-
-	// channelImg: {
-	// 	type: String,
-	// 	required: true,
-	// },
+	user: {
+		type: Schema.Types.ObjectId,
+		ref: 'User',
+		required: true,
+	},
 
 	// duration: {
 	// 	type: Number,

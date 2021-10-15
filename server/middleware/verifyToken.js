@@ -10,8 +10,6 @@ const verifyToken = (req, res, next) => {
 			message: 'You are not authenticated!',
 		});
 
-	console.log(process.env.SECRET_KEY);
-
 	// Verify token
 	const token = authHeader.split(' ')[1];
 	jwt.verify(token, process.env.SECRET_KEY, (err, user) => {

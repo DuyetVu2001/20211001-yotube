@@ -31,7 +31,7 @@ export default function Home({ videos: videoList }) {
 					<Categories />
 				</div> */}
 				<div className="pl-6">
-					<Categories />f
+					<Categories />
 				</div>
 			</div>
 

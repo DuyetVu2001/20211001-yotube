@@ -1,5 +1,7 @@
+import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Categories from '../../components/Categories';
 import CommentItem from '../../components/CommentItem';
 import DescriptionVideo from '../../components/DescriptionVideo';
@@ -8,7 +10,20 @@ import VideoItem from '../../components/VideoItem';
 import Avatar from '../../public/avatar.jpg';
 
 export default function Video() {
+	const [videos, setVideos] = useState([]);
 	const { videoId } = useRouter().query;
+
+	useEffect(() => {
+		const fetchVideos = async () => {
+			const res = await axios.get('http://localhost:4000/video');
+			setVideos(res.data.videos);
+		};
+		fetchVideos();
+	}, []);
+
+	if (videos.length != 0) {
+		console.log(videos);
+	}
 
 	return (
 		<div className="">
@@ -17,17 +32,15 @@ export default function Video() {
 			<div className="bg-[#F9F9F9] dark:bg-dark-main">
 				<div className="flex pt-6 w-[1706px] mx-auto">
 					<div className="flex-1 pr-6">
-						<div className="">
-							<iframe
-								width="1280"
-								height="720"
-								src={`https://www.youtube.com/embed/${videoId}`}
-								title="YouTube video player"
-								frameBorder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowFullScreen
-							/>
-						</div>
+						<iframe
+							width="1280"
+							height="720"
+							src={`https://www.youtube.com/embed/${videoId}`}
+							title="YouTube video player"
+							frameBorder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowFullScreen
+						/>
 
 						<DescriptionVideo />
 
@@ -66,16 +79,23 @@ export default function Video() {
 						<div className="w-full overflow-auto">
 							<Categories sm />
 						</div>
-						<VideoItem
-							row
-							video={{
-								title: 'Nothing',
-								videoId: videoId,
-							}}
-						/>
+						{videos
+							.filter((video) => video.videoId !== videoId)
+							.map((video) => (
+								<VideoItem key={video._id} row video={video} />
+							))}
 					</div>
 				</div>
 			</div>
 		</div>
 	);
 }
+
+// export async function getStaticProps() {
+// 	const res = await axios.get('http://localhost:4000/video');
+// 	return {
+// 		props: {
+// 			videos: res.data.videos,
+// 		},
+// 	};
+// }

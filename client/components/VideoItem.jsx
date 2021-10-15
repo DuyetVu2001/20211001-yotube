@@ -14,9 +14,9 @@ export default function VideoItem({ row, video }) {
 
 	return (
 		<div className={containerClass}>
-			<Link href={`/video/${videoId}`}>
-				<a>
-					<div className="relative aspect-16-9 bg-black">
+			<div className="relative aspect-16-9 bg-black">
+				<Link href={`/video/${videoId}`}>
+					<a>
 						<Image
 							className="object-cover"
 							src={`https://i.ytimg.com/vi/${videoId}/sddefault.jpg`}
@@ -25,9 +25,9 @@ export default function VideoItem({ row, video }) {
 						<p className="absolute flex bottom-1 right-1 px-1 tracking-wide leading-relaxed rounded-sm text-xs font-medium text-white bg-black">
 							36:30
 						</p>
-					</div>
-				</a>
-			</Link>
+					</a>
+				</Link>
+			</div>
 
 			<div className={`flex items-start ${row ? 'ml-2' : 'mt-3'}`}>
 				{!row && (

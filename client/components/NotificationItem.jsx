@@ -8,8 +8,6 @@ export default function NotificationItem({
 	time,
 	thumbnail,
 }) {
-	console.log(thumbnail);
-
 	return (
 		<div className="flex items-start py-4 hover:bg-[#0000000d]">
 			<div className="relative w-[48px] h-[48px] mx-4">

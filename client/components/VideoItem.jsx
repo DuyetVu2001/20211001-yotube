@@ -7,8 +7,6 @@ import Link from 'next/link';
 export default function VideoItem({ row, video }) {
 	const { title, videoId } = video;
 
-	console.log(videoId);
-
 	let containerClass = '';
 	if (row) {
 		containerClass = 'flex h-[94px] mt-[10px]';

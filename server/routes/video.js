@@ -9,10 +9,12 @@ const {
 	getVideo,
 } = require('../controllers/VideoController');
 
+const verifyToken = require('../middleware/verifyToken');
+
 router.get('/', getVideos);
 router.get('/:videoId', getVideo);
-router.post('/', createVideo);
-router.delete('/', deleteVideo);
-router.delete('/delete-all', deleteAllVideo);
+router.post('/', verifyToken, createVideo);
+router.delete('/', verifyToken, deleteVideo);
+router.delete('/delete-all', verifyToken, deleteAllVideo);
 
 module.exports = router;

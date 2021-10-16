@@ -13,7 +13,10 @@ exports.getVideos = async (_req, res) => {
 // @ get --> /video/:videoId --> get video detail --> public
 exports.getVideo = async (req, res) => {
 	try {
-		const video = await Video.findOne({ videoId: req.params.videoId });
+		const video = await Video.findOne({ videoId: req.params.videoId }).populate(
+			'user',
+			'username avatar'
+		);
 		res.status(200).json({ success: true, video });
 	} catch (error) {
 		res.status(500).json({ success: false, error });

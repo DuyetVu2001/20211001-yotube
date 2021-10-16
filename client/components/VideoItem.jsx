@@ -19,7 +19,7 @@ export default function VideoItem({ row, video }) {
 	return (
 		<div className={containerClass}>
 			<div className="relative aspect-16-9 bg-black">
-				<Link href={`video/${videoId}`}>
+				<Link href={`/video/${videoId}`}>
 					<a>
 						<Image
 							className="object-cover"
@@ -45,7 +45,7 @@ export default function VideoItem({ row, video }) {
 				)}
 
 				<div className="flex-1 mr-2">
-					<Link href={`video/${videoId}`}>
+					<Link href={`/video/${videoId}`}>
 						<a>
 							<h3 className={`${row && 'text-sm'} leading-5 font-bold`}>
 								{title}

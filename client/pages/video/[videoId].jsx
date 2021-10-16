@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 import Categories from '../../components/Categories';
 import CommentItem from '../../components/CommentItem';
 import DescriptionVideo from '../../components/DescriptionVideo';
@@ -9,21 +8,13 @@ import TopNav from '../../components/TopNav';
 import VideoItem from '../../components/VideoItem';
 import Avatar from '../../public/avatar.jpg';
 
-export default function Video() {
-	const [videos, setVideos] = useState([]);
-	const { videoId } = useRouter().query;
+export default function Video({ video, listVideo = [] }) {
+	const router = useRouter();
 
-	useEffect(() => {
-		const fetchVideos = async () => {
-			const res = await axios.get('http://localhost:4000/video');
-			setVideos(res.data.videos);
-		};
-		fetchVideos();
-	}, []);
-
-	if (videos.length != 0) {
-		console.log(videos);
+	if (router.isFallback) {
+		return <div>Loading...</div>;
 	}
+	const { videoId, title, user } = video;
 
 	return (
 		<div className="">
@@ -35,14 +26,14 @@ export default function Video() {
 						<iframe
 							width="1280"
 							height="720"
-							src={`https://www.youtube.com/embed/${videoId}`}
+							src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
 							title="YouTube video player"
 							frameBorder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 							allowFullScreen
 						/>
 
-						<DescriptionVideo />
+						<DescriptionVideo title={title} user={user} />
 
 						{/* COMMENTS */}
 						<div className="">
@@ -79,7 +70,7 @@ export default function Video() {
 						<div className="w-full overflow-auto">
 							<Categories sm />
 						</div>
-						{videos
+						{listVideo
 							.filter((video) => video.videoId !== videoId)
 							.map((video) => (
 								<VideoItem key={video._id} row video={video} />
@@ -91,11 +82,24 @@ export default function Video() {
 	);
 }
 
-// export async function getStaticProps() {
-// 	const res = await axios.get('http://localhost:4000/video');
-// 	return {
-// 		props: {
-// 			videos: res.data.videos,
-// 		},
-// 	};
-// }
+export async function getStaticPaths() {
+	const res = await axios.get('http://localhost:4000/video');
+	const paths = res.data.videos.map((video) => ({
+		params: { videoId: `${video.videoId}` },
+	}));
+
+	return { paths, fallback: true };
+}
+
+export async function getStaticProps(context) {
+	const { params } = context;
+	const res = await axios.get('http://localhost:4000/video/' + params.videoId);
+	const resListVideo = await axios.get('http://localhost:4000/video');
+
+	return {
+		props: {
+			video: res.data.video,
+			listVideo: resListVideo.data.videos,
+		},
+	};
+}

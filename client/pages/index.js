@@ -63,5 +63,6 @@ export async function getStaticProps() {
 		props: {
 			videos: res.data.videos,
 		},
+		revalidate: 10,
 	};
 }

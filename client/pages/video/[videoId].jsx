@@ -101,5 +101,6 @@ export async function getStaticProps(context) {
 			video: res.data.video,
 			listVideo: resListVideo.data.videos,
 		},
+		revalidate: 10,
 	};
 }

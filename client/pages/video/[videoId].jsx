@@ -1,23 +1,41 @@
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import Categories from '../../components/Categories';
+import { useEffect, useState } from 'react';
 import CommentItem from '../../components/CommentItem';
 import DescriptionVideo from '../../components/DescriptionVideo';
 import TopNav from '../../components/TopNav';
 import VideoItem from '../../components/VideoItem';
 import { API } from '../../constant';
-import useFetch from '../../hooks/useFetch';
+import useFetchCategories from '../../hooks/useFetchCategories';
+import useFetchVideos from '../../hooks/useFetchVideos';
 import Avatar from '../../public/avatar.jpg';
 
 export default function Video({ video }) {
 	const router = useRouter();
-	const { data, loading, error } = useFetch('video');
+	const [query, setQuery] = useState('');
+	const [routerLoad, setRouterLoad] = useState(true);
+	const { data, loading, error } = useFetchVideos(`video?category=${query}`);
+	const { data: categoryList, error: categoryError } =
+		useFetchCategories('video/categories');
+
+	useEffect(() => {
+		if (!router.isReady) return;
+		setRouterLoad(false);
+		setQuery(() => router.query.category);
+	}, [router.isReady]);
 
 	if (router.isFallback) {
 		return <div>Loading...</div>;
 	}
 	const { videoId, title, user } = video;
+
+	const handleClick = (category) => {
+		setQuery(category);
+		router.push(`${video.videoId}?category=${category}`, undefined, {
+			shallow: true,
+		});
+	};
 
 	return (
 		<div className="">
@@ -71,9 +89,27 @@ export default function Video({ video }) {
 
 					<div className="w-[402px]">
 						<div className="w-full overflow-auto">
-							<Categories sm />
+							<div className="flex gap-2">
+								<p
+									className={`flex-initial flex-shrink-0 leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl text-white text-sm bg-[#000] dark:bg-white dark:text-black cursor-pointer`}
+									onClick={() => handleClick('')}
+								>
+									All
+								</p>
+								{!categoryError &&
+									categoryList &&
+									categoryList.map((category) => (
+										<p
+											key={category}
+											className={`flex-initial flex-shrink-0 leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl text-white text-sm bg-[#000] dark:bg-white dark:text-black cursor-pointer`}
+											onClick={() => handleClick(category)}
+										>
+											{category}
+										</p>
+									))}
+							</div>
 						</div>
-						{loading ? (
+						{loading || routerLoad ? (
 							<h2>Loading...</h2>
 						) : (
 							!error &&

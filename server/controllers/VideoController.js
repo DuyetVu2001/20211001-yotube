@@ -1,10 +1,30 @@
 const Video = require('../models/Video');
 
 // @ get --> /video/ --> get all video --> public
-exports.getVideos = async (_req, res) => {
+exports.getVideos = async (req, res) => {
 	try {
-		const videos = await Video.find().populate('user', 'username avatar');
+		const { category } = req.query;
+
+		let videos;
+		if (category && category !== 'undefined')
+			videos = await Video.find({ category }).populate(
+				'user',
+				'username avatar'
+			);
+		else videos = await Video.find().populate('user', 'username avatar');
+
 		res.status(200).json({ success: true, videos });
+	} catch (error) {
+		res.status(500).json({ success: false, error });
+	}
+};
+
+// @ get --> /video/categories --> get category list --> public
+exports.getCategories = async (_req, res) => {
+	try {
+		const categories = await Video.find({}, 'category').distinct('category');
+
+		res.status(200).json({ success: true, categories });
 	} catch (error) {
 		res.status(500).json({ success: false, error });
 	}

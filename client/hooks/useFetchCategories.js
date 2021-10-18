@@ -4,10 +4,10 @@ import { API } from '../constant';
 
 const fetcher = async (url) => {
 	const res = await axios.get(API + url);
-	return res.data.videos;
+	return res.data.categories;
 };
 
-export default function useFetch(url) {
+export default function useFetchCategories(url) {
 	const { data, error } = useSWR(url, fetcher);
 
 	return {

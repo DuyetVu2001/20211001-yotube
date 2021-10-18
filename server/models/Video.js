@@ -19,17 +19,17 @@ const VideoScheme = new Schema({
 		required: true,
 	},
 
+	category: {
+		type: String,
+		required: true,
+	},
+
 	// duration: {
 	// 	type: Number,
 	// 	required: true,
 	// },
 
 	// views: {
-	// 	type: Number,
-	// 	required: true,
-	// },
-
-	// type: {
 	// 	type: Number,
 	// 	required: true,
 	// },

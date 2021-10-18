@@ -30,9 +30,11 @@ Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjk4YmY5N2M1NjVkZjV
 ###
 DELETE  http://localhost:4000/video
 Content-Type: application/json
+Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
+
 
 {
-  "id": "616266a13e0dc45edacf1f64"
+  "id": "616d2467e5bee30cf8dd5533"
 }
 
 ###

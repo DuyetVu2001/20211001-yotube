@@ -6,6 +6,7 @@ import SideBar from '../components/SideBar';
 import TopNav from '../components/TopNav';
 import VideoItem from '../components/VideoItem';
 import { IsDisplaySideBarContext } from '../context/IsDisplaySideBarContext';
+import { API } from '../constant';
 
 export default function Home({ videos: videoList }) {
 	const { isDisplay } = useContext(IsDisplaySideBarContext);
@@ -58,7 +59,7 @@ export default function Home({ videos: videoList }) {
 }
 
 export async function getStaticProps() {
-	const res = await axios.get('http://localhost:4000/video');
+	const res = await axios.get(API + 'video');
 	return {
 		props: {
 			videos: res.data.videos,

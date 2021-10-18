@@ -6,10 +6,13 @@ import CommentItem from '../../components/CommentItem';
 import DescriptionVideo from '../../components/DescriptionVideo';
 import TopNav from '../../components/TopNav';
 import VideoItem from '../../components/VideoItem';
+import { API } from '../../constant';
+import useFetch from '../../hooks/useFetch';
 import Avatar from '../../public/avatar.jpg';
 
-export default function Video({ video, listVideo = [] }) {
+export default function Video({ video }) {
 	const router = useRouter();
+	const { data, loading, error } = useFetch('video');
 
 	if (router.isFallback) {
 		return <div>Loading...</div>;
@@ -70,11 +73,15 @@ export default function Video({ video, listVideo = [] }) {
 						<div className="w-full overflow-auto">
 							<Categories sm />
 						</div>
-						{listVideo
-							.filter((video) => video.videoId !== videoId)
-							.map((video) => (
-								<VideoItem key={video._id} row video={video} />
-							))}
+						{loading ? (
+							<h2>Loading...</h2>
+						) : (
+							!error &&
+							data &&
+							data
+								.filter((video) => video.videoId !== videoId)
+								.map((video) => <VideoItem key={video._id} row video={video} />)
+						)}
 					</div>
 				</div>
 			</div>
@@ -83,7 +90,7 @@ export default function Video({ video, listVideo = [] }) {
 }
 
 export async function getStaticPaths() {
-	const res = await axios.get('http://localhost:4000/video');
+	const res = await axios.get(API + 'video');
 	const paths = res.data.videos.map((video) => ({
 		params: { videoId: `${video.videoId}` },
 	}));
@@ -93,13 +100,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
 	const { params } = context;
-	const res = await axios.get('http://localhost:4000/video/' + params.videoId);
-	const resListVideo = await axios.get('http://localhost:4000/video');
-
+	const res = await axios.get(API + 'video/' + params.videoId);
 	return {
 		props: {
 			video: res.data.video,
-			listVideo: resListVideo.data.videos,
 		},
 		revalidate: 10,
 	};

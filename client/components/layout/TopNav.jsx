@@ -9,13 +9,13 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { BsBell } from 'react-icons/bs';
 import { CgMenuGridO } from 'react-icons/cg';
 import { FaBars, FaMicrophone, FaRegKeyboard, FaYoutube } from 'react-icons/fa';
-import { IsDisplaySideBarContext } from '../context/IsDisplaySideBarContext';
-import useClickOutside from '../hooks/useClickOutside';
-import Avatar from '../public/avatar.jpg';
-import Logo from '../public/logo.png';
-import NotificationItem from './NotificationItem';
-import SideBarItem from './SideBarItem';
-import TopNavIcon from './TopNavIcon';
+import { IsDisplaySideBarContext } from '../../context/IsDisplaySideBarContext';
+import useClickOutside from '../../hooks/useClickOutside';
+import Avatar from '../../public/avatar.jpg';
+import Logo from '../../public/logo.png';
+import NotificationItem from '../NotificationItem';
+import SideBarItem from '../SideBarItem';
+import TopNavIcon from '../TopNavIcon';
 import Link from 'next/link';
 
 export default function TopNav() {

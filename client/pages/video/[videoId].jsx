@@ -1,10 +1,10 @@
 import axios from 'axios';
+import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import CommentItem from '../../components/CommentItem';
 import DescriptionVideo from '../../components/DescriptionVideo';
-import TopNav from '../../components/TopNav';
 import VideoItem from '../../components/VideoItem';
 import { API } from '../../constant';
 import useFetchCategories from '../../hooks/useFetchCategories';
@@ -38,8 +38,11 @@ export default function Video({ video }) {
 	};
 
 	return (
-		<div className="">
-			<TopNav />
+		<>
+			<Head>
+				<title>{video.title}</title>
+				<meta name="description" content={video.title} />
+			</Head>
 
 			<div className="bg-[#F9F9F9] dark:bg-dark-main">
 				<div className="flex pt-6 w-[1706px] mx-auto">
@@ -121,7 +124,7 @@ export default function Video({ video }) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 

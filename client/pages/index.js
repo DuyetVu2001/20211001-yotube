@@ -3,7 +3,6 @@ import { useTheme } from 'next-themes';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import SideBar from '../components/SideBar';
-import TopNav from '../components/TopNav';
 import VideoItem from '../components/VideoItem';
 import { API } from '../constant';
 import { IsDisplaySideBarContext } from '../context/IsDisplaySideBarContext';
@@ -41,8 +40,7 @@ export default function Home({ videos: videoList }) {
 	if (loading) return <h1>Loading...</h1>;
 
 	return (
-		<div className="">
-			<TopNav />
+		<>
 			<SideBar />
 
 			<div
@@ -89,7 +87,7 @@ export default function Home({ videos: videoList }) {
 					cai nut
 				</button>
 			</div>
-		</div>
+		</>
 	);
 }
 
@@ -114,3 +112,5 @@ export async function getServerSideProps(context) {
 // 		revalidate: 10,
 // 	};
 // }
+
+// Home.getLayout = (page) => <>{page}</>;

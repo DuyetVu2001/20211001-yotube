@@ -31,26 +31,19 @@ export default function Home({ videos: videoList }) {
 		});
 	};
 
-	// Theme
-	const { theme, setTheme } = useTheme();
-	const toggleTheme = () => {
-		setTheme(theme === 'dark' ? 'light' : 'dark');
-	};
-
 	if (loading) return <h1>Loading...</h1>;
 
 	return (
-		<>
+		<div>
 			<SideBar />
 
+			{/* CATEGORIES */}
 			<div
-				className={`opacity-[0.97] fixed right-0 ${
-					isDisplay ? 'left-[240px]' : 'left-[72px]'
-				} z-30 py-3 border-t-[1px] border-b-[1px] border-[#ddd] dark:border-dark-border bg-white dark:bg-dark-second`}
+				className={`left-0 top-nav-height md:left-[72px] xl:left-[240px] opacity-[0.97] fixed right-0 z-30 py-3 border-t-[1px] border-b-[1px] border-[#ddd] dark:border-dark-border bg-white dark:bg-dark-second`}
 			>
 				<div className="pl-6 flex gap-3">
 					<p
-						className={`flex-initial flex-shrink-0 leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl text-white text-sm bg-[#000] dark:bg-white dark:text-black cursor-pointer`}
+						className={`leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl text-white text-sm bg-[#000] dark:bg-white dark:text-black cursor-pointer`}
 						onClick={() => handleClick('')}
 					>
 						All
@@ -60,7 +53,7 @@ export default function Home({ videos: videoList }) {
 						categoryList.map((category) => (
 							<p
 								key={category}
-								className={`flex-initial flex-shrink-0 leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl text-white text-sm bg-[#000] dark:bg-white dark:text-black cursor-pointer`}
+								className={`leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl text-white text-sm bg-[#000] dark:bg-white dark:text-black cursor-pointer`}
 								onClick={() => handleClick(category)}
 							>
 								{category}
@@ -70,24 +63,23 @@ export default function Home({ videos: videoList }) {
 			</div>
 
 			{/* LIST VIDEOS */}
-			<div
-				className={`flex flex-wrap mt-nav-height pt-6 ${
-					isDisplay ? 'ml-[240px] px-20' : 'ml-[72px] px-4'
-				} bg-[#F9F9F9] dark:bg-dark-main`}
-			>
-				{videos.map((video) => (
-					<div
-						key={video._id}
-						className={`${!isDisplay ? 'w-[20%]' : 'w-[25%]'} mb-10 px-2`}
-					>
-						<VideoItem video={video} />
+			<div className="md:ml-[72px] xl:ml-[240px] mt-nav-height pt-6 bg-[#F9F9F9] dark:bg-dark-main">
+				<div
+					className={`max-w-[320px] mx-auto sm:max-w-[670px] 2md:max-w-[1002px] lg:max-w-[1500px]`}
+				>
+					<div className="flex flex-wrap -mx-2 2md:mx-4">
+						{videos.map((video) => (
+							<div
+								key={video._id}
+								className={`sm:w-1/2 2md:w-1/3 lg:w-1/4 mb-10 px-2`}
+							>
+								<VideoItem video={video} />
+							</div>
+						))}
 					</div>
-				))}
-				<button className="px-4 text-white bg-black" onClick={toggleTheme}>
-					cai nut
-				</button>
+				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 

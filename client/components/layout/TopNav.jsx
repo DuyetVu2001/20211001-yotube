@@ -1,14 +1,16 @@
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useContext, useRef, useState } from 'react';
 import {
 	AiOutlinePlaySquare,
 	AiOutlineSearch,
 	AiOutlineVideoCameraAdd,
 } from 'react-icons/ai';
-import { IoCloseOutline } from 'react-icons/io5';
 import { BsBell } from 'react-icons/bs';
 import { CgMenuGridO } from 'react-icons/cg';
-import { FaBars, FaMicrophone, FaRegKeyboard, FaYoutube } from 'react-icons/fa';
+import { FaBars, FaMicrophone, FaRegKeyboard } from 'react-icons/fa';
+import { IoCloseOutline } from 'react-icons/io5';
 import { IsDisplaySideBarContext } from '../../context/IsDisplaySideBarContext';
 import useClickOutside from '../../hooks/useClickOutside';
 import Avatar from '../../public/avatar.jpg';
@@ -16,7 +18,6 @@ import Logo from '../../public/logo.png';
 import NotificationItem from '../NotificationItem';
 import SideBarItem from '../SideBarItem';
 import TopNavIcon from '../TopNavIcon';
-import Link from 'next/link';
 
 export default function TopNav() {
 	const { toggleIsDisplay } = useContext(IsDisplaySideBarContext);
@@ -30,6 +31,11 @@ export default function TopNav() {
 	const [bellDisplay, setBellDisplay] = useClickOutside(bellRef);
 	const [personalDisplay, setPersonalDisplay] = useClickOutside(personalRef);
 
+	// Theme
+	const { theme, setTheme } = useTheme();
+	const toggleTheme = () => {
+		setTheme(theme === 'dark' ? 'light' : 'dark');
+	};
 	return (
 		<div className="sticky top-0 left-0 right-0 z-40 h-nav-height flex-center justify-between pl-3 pr-10 bg-white dark:bg-dark-second opacity-[0.97]">
 			{/* LEFT */}
@@ -65,7 +71,7 @@ export default function TopNav() {
 			{/* MID */}
 			<div className="flex-center">
 				{/* SEARCH */}
-				<div className="flex-center mr-2 h-10 border border-gray-400 dark:border-dark-border dark:bg-dark-main">
+				<div className="hidden lg:flex flex-center mr-2 h-10 border border-gray-400 dark:border-dark-border dark:bg-dark-main">
 					<input
 						className="w-[530px] mx-2 outline-none bg-transparent"
 						type="text"
@@ -78,7 +84,10 @@ export default function TopNav() {
 				</div>
 
 				{/* MIC */}
-				<div onClick={() => setVoicePopupDisplay(true)}>
+				<div
+					className="hidden lg:block"
+					onClick={() => setVoicePopupDisplay(true)}
+				>
 					<TopNavIcon bg Icon={FaMicrophone} />
 				</div>
 			</div>
@@ -317,13 +326,15 @@ export default function TopNav() {
 								title="Go live"
 							/>
 							<div className="h-[1px] my-2 bg-[#ddd] dark:bg-dark-border" />
-							<SideBarItem
-								large
-								pl="sm"
-								space="sm"
-								Icon={AiOutlinePlaySquare}
-								title="Go live"
-							/>
+							<div onClick={toggleTheme}>
+								<SideBarItem
+									large
+									pl="sm"
+									space="sm"
+									Icon={AiOutlinePlaySquare}
+									title="Go live"
+								/>
+							</div>
 							<SideBarItem
 								large
 								pl="sm"

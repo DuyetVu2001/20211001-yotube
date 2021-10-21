@@ -11,7 +11,7 @@ export default function VideoItem({ row, video }) {
 		user: { username, avatar },
 	} = video;
 
-	let containerClass = '';
+	let containerClass = 'w-full';
 	if (row) {
 		containerClass = 'flex h-[94px] mt-[10px]';
 	}

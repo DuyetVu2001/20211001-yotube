@@ -17,13 +17,15 @@ export default function DescriptionVideo(props) {
 			</p> */}
 			<h2 className="text-lg font-medium">{title}</h2>
 
-			<div className="flex mt-[6px]">
-				<p className="flex-1 text-sm">
+			{/* <div className="flex mt-[6px]"> */}
+			<div className="3sm:flex mt-[6px]">
+				<p className="flex-1 mb-3 text-sm">
 					<span className="font-medium">3,888 views • Jul 19, 2021 • </span>Chủ
-					xe khó tính về cách âm ồn trên BEIJING X7 ? X7 thay lọc gió xe
+					xe khó tính về cách âm ồn trên BEIJING X7 ? X7 thay
 				</p>
 
-				<div className="flex-1 self-end flex justify-end gap-4">
+				{/* <div className="flex-1 self-end flex justify-end gap-4"> */}
+				<div className="flex self-end gap-4">
 					<div className="flex items-center">
 						<TopNavIcon mx={0} Icon={BiLike} />
 						<p className="text-sm font-medium ml-[-2px]">1k</p>

@@ -49,16 +49,15 @@ export default function Video({ video }) {
 	};
 
 	return (
-		<>
+		<div className="overflow-hidden bg-[#F9F9F9] dark:bg-dark-main">
 			<Head>
 				<title>{video.title}</title>
 				<meta name="description" content={video.title} />
 			</Head>
 
-			<div className="bg-[#F9F9F9] dark:bg-dark-main">
-				{/* <div className="flex pt-6 w-[1706px] mx-auto"> */}
-				<div className="flex pt-6 mx-auto">
-					<div className="flex-1">
+			<div className="min-w-[476px] max-w-[1754px] mx-auto px-6">
+				<div className="flex pt-6">
+					<div className="flex-grow-1 3md:pr-6">
 						<iframe
 							className="w-full aspect-16-9"
 							// width="1280"
@@ -73,7 +72,7 @@ export default function Video({ video }) {
 						<DescriptionVideo title={title} user={user} />
 
 						{/*  */}
-						<div className="">
+						<div className="3md:hidden">
 							<RightSide data={rightSideData} />
 						</div>
 
@@ -108,12 +107,12 @@ export default function Video({ video }) {
 						</div>
 					</div>
 
-					<div className="hidden w-[402px]">
+					<div className="hidden 3md:block min-w-[300px] max-w-[402px]">
 						<RightSide data={rightSideData} />
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 
@@ -131,8 +130,8 @@ export const RightSide = ({ data: propData }) => {
 
 	return (
 		<>
-			<div className="w-full overflow-auto">
-				<div className="flex gap-2">
+			<div className="w-full mt-6 overflow-auto">
+				<div className="flex mb-2 gap-2">
 					<p
 						className={`flex-initial flex-shrink-0 leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl text-white text-sm bg-[#000] dark:bg-white dark:text-black cursor-pointer`}
 						onClick={() => handleClick('')}

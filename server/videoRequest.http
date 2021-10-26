@@ -1,4 +1,4 @@
-GET http://localhost:4000/video?category=music
+GET http://localhost:4000/video?category
 ###
 GET http://localhost:4000/video/categories
 ###
@@ -12,7 +12,7 @@ Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzB
 
 {
   "title": "K'NAAN - Wavin' Flag (Coca-Cola Celebration Mix)",
-  "videoId": "kTJczUoc26U",
+  "videoId": "V2a-sl4l3_4",
   "category": "acoustic"
   # "video": "https://www.youtube.com/watch?v=vKPm8tQ1izo",
   # "thumbnail": "https://i.ytimg.com/vi/aJOTlE1K90k/sddefault.jpg",
@@ -32,15 +32,15 @@ Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjk4YmY5N2M1NjVkZjV
 }
 
 ###
-DELETE  http://localhost:4000/video
+DELETE  http://localhost:4000/video/6177ce300c21a39c3f425292
 Content-Type: application/json
 Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
-
-
-{
-  "id": "616d2467e5bee30cf8dd5533"
-}
 
 ###
 DELETE  http://localhost:4000/video/delete-all
 Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
+
+###
+PUT http://localhost:4000/video/like/61782ca4d192c5fa5462523b
+Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
+

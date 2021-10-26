@@ -1,5 +1,20 @@
 const Video = require('../models/Video');
 
+// @ get --> /video/like --> get like video --> public
+exports.likeVideo = async (req, res) => {
+	try {
+		// Check user is like
+
+		const data = await Video.findByIdAndUpdate(req.params.videoId, {
+			$push: { likes: req.user.id },
+		});
+
+		res.status(200).json({ success: true });
+	} catch (error) {
+		res.status(500).json({ success: false, error });
+	}
+};
+
 // @ get --> /video/ --> get all video --> public
 exports.getVideos = async (req, res) => {
 	try {
@@ -60,12 +75,9 @@ exports.createVideo = async (req, res) => {
 
 // @ delete --> /video --> delete video --> private
 exports.deleteVideo = async (req, res) => {
-	const data = req.body;
-	if (!data)
-		return res.status(401).json({ success: false, message: 'Invalid data!' });
 	try {
-		const isDeleted = await Video.findByIdAndDelete(data.id);
-
+		// videoID or _id
+		const isDeleted = await Video.findByIdAndDelete(req.params.videoId);
 		if (!isDeleted)
 			return res
 				.status(401)
@@ -79,13 +91,9 @@ exports.deleteVideo = async (req, res) => {
 
 // SOS
 // @ delete --> /video/delete-all --> delete ALL video --> private
-exports.deleteAllVideo = async (req, res) => {
-	const data = req.body;
-	if (!data)
-		return res.status(401).json({ success: false, message: 'Invalid data!' });
+exports.deleteAllVideos = async (_req, res) => {
 	try {
 		await Video.deleteMany();
-
 		res.status(200).json({ success: true });
 	} catch (error) {
 		res.status(500).json({ success: false, error });

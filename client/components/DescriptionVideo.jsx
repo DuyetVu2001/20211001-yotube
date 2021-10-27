@@ -1,14 +1,32 @@
 import Image from 'next/image';
 import { BiDislike, BiLike, BiShare } from 'react-icons/bi';
+import { AiFillLike, AiTwotoneDislike } from 'react-icons/ai';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import Avatar from '../public/avatar.jpg';
 import TopNavIcon from './TopNavIcon';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
+
+const check = (arr, userId) => arr.includes(userId);
 
 export default function DescriptionVideo(props) {
 	const {
 		title,
 		user: { username, avatar },
+		likes,
+		dislikes,
 	} = props;
+	const { auth } = useContext(AuthContext);
+	const [isLike, setIsLike] = useState(false);
+	const [isDislike, setIsDislike] = useState(false);
+
+	console.log(auth);
+
+	useEffect(() => {
+		if (!auth?.user?._id) return;
+		setIsLike(check(likes, auth?.user?._id));
+		setIsDislike(check(dislikes, auth?.user?._id));
+	}, [auth?.user?._id]);
 
 	return (
 		<div className="mt-[14px]">
@@ -27,11 +45,19 @@ export default function DescriptionVideo(props) {
 				{/* <div className="flex-1 self-end flex justify-end gap-4"> */}
 				<div className="flex self-end gap-4">
 					<div className="flex items-center">
-						<TopNavIcon mx={0} Icon={BiLike} />
+						{isLike ? (
+							<TopNavIcon mx={0} Icon={AiFillLike} />
+						) : (
+							<TopNavIcon mx={0} Icon={BiLike} />
+						)}
 						<p className="text-sm font-medium ml-[-2px]">1k</p>
 					</div>
 					<div className="flex items-center">
-						<TopNavIcon mx={0} Icon={BiDislike} />
+						{isDislike ? (
+							<TopNavIcon mx={0} Icon={AiTwotoneDislike} />
+						) : (
+							<TopNavIcon mx={0} Icon={BiDislike} />
+						)}
 						<p className="text-sm font-medium ml-[-2px]">1k</p>
 					</div>
 					<div className="flex items-center">

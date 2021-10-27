@@ -9,11 +9,13 @@ const {
 	getVideo,
 	getCategories,
 	likeVideo,
+	dislikeVideo,
 } = require('../controllers/VideoController');
 
 const verifyToken = require('../middleware/verifyToken');
 
 router.put('/like/:videoId', verifyToken, likeVideo);
+router.put('/dislike/:videoId', verifyToken, dislikeVideo);
 
 router.get('/', getVideos);
 router.get('/categories', getCategories);

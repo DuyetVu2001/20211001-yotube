@@ -12,6 +12,7 @@ import { CgMenuGridO } from 'react-icons/cg';
 import { FaBars, FaMicrophone, FaRegKeyboard } from 'react-icons/fa';
 import { IoCloseOutline } from 'react-icons/io5';
 import { IsDisplaySideBarContext } from '../../context/IsDisplaySideBarContext';
+import { AuthContext } from '../../context/AuthContext';
 import useClickOutside from '../../hooks/useClickOutside';
 import Avatar from '../../public/avatar.jpg';
 import Logo from '../../public/logo.png';
@@ -20,6 +21,7 @@ import SideBarItem from '../SideBarItem';
 import TopNavIcon from '../TopNavIcon';
 
 export default function TopNav() {
+	const { auth } = useContext(AuthContext);
 	const { toggleIsDisplay } = useContext(IsDisplaySideBarContext);
 	const [voicePopupDisplay, setVoicePopupDisplay] = useState(false);
 	const videoRef = useRef(null);
@@ -297,7 +299,7 @@ export default function TopNav() {
 								</div>
 
 								<div className="">
-									<p className="text-lg font-medium">Vũ Ngọc Duyệt</p>
+									<p className="text-lg font-medium">{auth?.user.username}</p>
 									<p className="mt-1 text-sm text-blue-color">
 										Manage your Google Account
 									</p>

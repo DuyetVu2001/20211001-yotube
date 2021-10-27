@@ -69,7 +69,12 @@ export default function Video({ video }) {
 							allowFullScreen
 						/>
 
-						<DescriptionVideo title={title} user={user} />
+						<DescriptionVideo
+							title={title}
+							user={user}
+							likes={video.likes}
+							dislikes={video.dislikes}
+						/>
 
 						{/*  */}
 						<div className="3md:hidden">

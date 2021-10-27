@@ -1,12 +1,61 @@
 const Video = require('../models/Video');
 
-// @ get --> /video/like --> get like video --> public
+// @ put --> /video/like/:videoId --> add user like video --> public
 exports.likeVideo = async (req, res) => {
 	try {
-		// Check user is like
+		// Check user is like?
+		const video = await Video.findById(req.params.videoId);
+		if (!video)
+			return res
+				.status(401)
+				.json({ success: false, message: 'Video not found!' });
 
-		const data = await Video.findByIdAndUpdate(req.params.videoId, {
+		const isUserLiked = video.likes.includes(req.user.id);
+		let dislikes = video.dislikes;
+		const isUserDisliked = dislikes.includes(req.user.id);
+		// if user dislike, delete user in dislikes array
+		if (isUserDisliked)
+			dislikes = dislikes.filter((userId) => userId.valueOf() !== req.user.id);
+		// one user one like
+		if (isUserLiked)
+			return res.status(401).json({ success: false, message: 'User liked!' });
+
+		await Video.findByIdAndUpdate(req.params.videoId, {
 			$push: { likes: req.user.id },
+			dislikes,
+		});
+
+		res.status(200).json({ success: true });
+	} catch (error) {
+		res.status(500).json({ success: false, error });
+	}
+};
+
+// @ put --> /video/dislike/:videoId --> add user dislike video --> public
+exports.dislikeVideo = async (req, res) => {
+	try {
+		// Check user is like
+		const video = await Video.findById(req.params.videoId);
+		if (!video)
+			return res
+				.status(401)
+				.json({ success: false, message: 'Video not found!' });
+
+		const isUserDisliked = video.dislikes.includes(req.user.id);
+		let likes = video.likes;
+		const isUserLiked = likes.includes(req.user.id);
+		// if user like, delete user in likes array
+		if (isUserLiked)
+			likes = likes.filter((userId) => userId.valueOf() !== req.user.id);
+		// one user one dislike
+		if (isUserDisliked)
+			return res
+				.status(401)
+				.json({ success: false, message: 'User disliked!' });
+
+		await Video.findByIdAndUpdate(req.params.videoId, {
+			$push: { dislikes: req.user.id },
+			likes,
 		});
 
 		res.status(200).json({ success: true });

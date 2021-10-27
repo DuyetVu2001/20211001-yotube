@@ -45,9 +45,10 @@ exports.login = async (req, res) => {
 		// Crete token
 		const accessToken = jwt.sign({ id: isUserExist._id }, SECRET_KEY);
 
+		const { password: p, ...userRes } = isUserExist._doc;
 		res.status(200).json({
 			success: true,
-			user: { username, avatar: isUserExist.avatar },
+			user: userRes,
 			accessToken,
 		});
 	} catch (error) {

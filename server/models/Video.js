@@ -34,25 +34,6 @@ const VideoScheme = new Schema({
 		default: [],
 	},
 
-	// likes: [
-	// 	{
-	// 		type: Schema.Types.ObjectId,
-	// 		ref: 'User',
-	// 	},
-	// ],
-
-	// dislikes: [
-	// 	{
-	// 		type: Schema.Types.ObjectId,
-	// 		ref: 'User',
-	// 	},
-	// ],
-
-	// duration: {
-	// 	type: Number,
-	// 	required: true,
-	// },
-
 	// views: {
 	// 	type: Number,
 	// 	required: true,

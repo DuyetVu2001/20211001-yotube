@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import { API } from '../constant';
+import setAuthToken from '../utils/setAuthToken';
 
 export const AuthContext = createContext({});
 
@@ -25,6 +26,8 @@ export default function AuthProvider({ children }) {
 		};
 		login();
 	}, []);
+
+	if (auth.token) setAuthToken(auth.token);
 
 	return (
 		<AuthContext.Provider value={{ auth }}>{children}</AuthContext.Provider>

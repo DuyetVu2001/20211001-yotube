@@ -1,16 +1,19 @@
+import axios from 'axios';
 import Image from 'next/image';
-import { BiDislike, BiLike, BiShare } from 'react-icons/bi';
+import { useContext, useEffect, useState } from 'react';
 import { AiFillLike, AiTwotoneDislike } from 'react-icons/ai';
+import { BiDislike, BiLike, BiShare } from 'react-icons/bi';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import { API } from '../constant';
+import { AuthContext } from '../context/AuthContext';
 import Avatar from '../public/avatar.jpg';
 import TopNavIcon from './TopNavIcon';
-import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../context/AuthContext';
 
 const check = (arr, userId) => arr.includes(userId);
 
 export default function DescriptionVideo(props) {
 	const {
+		id,
 		title,
 		user: { username, avatar },
 		likes,
@@ -19,14 +22,46 @@ export default function DescriptionVideo(props) {
 	const { auth } = useContext(AuthContext);
 	const [isLike, setIsLike] = useState(false);
 	const [isDislike, setIsDislike] = useState(false);
-
-	console.log(auth);
+	const [countLikes, setCountLikes] = useState(likes.length);
+	const [countDislikes, setCountDislikes] = useState(dislikes.length);
 
 	useEffect(() => {
 		if (!auth?.user?._id) return;
 		setIsLike(check(likes, auth?.user?._id));
 		setIsDislike(check(dislikes, auth?.user?._id));
 	}, [auth?.user?._id]);
+
+	const handleLikeClick = async (action) => {
+		await axios.put(`${API}video/${action}/${id}`);
+
+		if (action === 'like') {
+			if (isLike) {
+				setIsLike(false);
+				setCountLikes((state) => state - 1);
+			} else if (isDislike) {
+				setIsLike(true);
+				setCountLikes((state) => state + 1);
+				setIsDislike(false);
+				setCountDislikes((state) => state - 1);
+			} else {
+				setIsLike(true);
+				setCountLikes((state) => state + 1);
+			}
+		} else {
+			if (isDislike) {
+				setIsDislike(false);
+				setCountDislikes((state) => state - 1);
+			} else if (isLike) {
+				setIsDislike(true);
+				setCountDislikes((state) => state + 1);
+				setIsLike(false);
+				setCountLikes((state) => state - 1);
+			} else {
+				setIsDislike(true);
+				setCountDislikes((state) => state + 1);
+			}
+		}
+	};
 
 	return (
 		<div className="mt-[14px]">
@@ -35,30 +70,36 @@ export default function DescriptionVideo(props) {
 			</p> */}
 			<h2 className="text-lg font-medium">{title}</h2>
 
-			{/* <div className="flex mt-[6px]"> */}
 			<div className="3sm:flex mt-[6px]">
 				<p className="flex-1 mb-3 text-sm">
-					<span className="font-medium">3,888 views • Jul 19, 2021 • </span>Chủ
-					xe khó tính về cách âm ồn trên BEIJING X7 ? X7 thay
+					<span className="font-medium">3,888 views • Jul 19, 2021 • </span>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
 				</p>
 
-				{/* <div className="flex-1 self-end flex justify-end gap-4"> */}
 				<div className="flex self-end gap-4">
 					<div className="flex items-center">
 						{isLike ? (
-							<TopNavIcon mx={0} Icon={AiFillLike} />
+							<div onClick={() => handleLikeClick('like')}>
+								<TopNavIcon mx={0} Icon={AiFillLike} />
+							</div>
 						) : (
-							<TopNavIcon mx={0} Icon={BiLike} />
+							<div onClick={() => handleLikeClick('like')}>
+								<TopNavIcon mx={0} Icon={BiLike} />
+							</div>
 						)}
-						<p className="text-sm font-medium ml-[-2px]">1k</p>
+						<p className="text-sm font-medium ml-[-2px]">{countLikes}</p>
 					</div>
 					<div className="flex items-center">
 						{isDislike ? (
-							<TopNavIcon mx={0} Icon={AiTwotoneDislike} />
+							<div onClick={() => handleLikeClick('dislike')}>
+								<TopNavIcon mx={0} Icon={AiTwotoneDislike} />
+							</div>
 						) : (
-							<TopNavIcon mx={0} Icon={BiDislike} />
+							<div onClick={() => handleLikeClick('dislike')}>
+								<TopNavIcon mx={0} Icon={BiDislike} />
+							</div>
 						)}
-						<p className="text-sm font-medium ml-[-2px]">1k</p>
+						<p className="text-sm font-medium ml-[-2px]">{countDislikes}</p>
 					</div>
 					<div className="flex items-center">
 						<TopNavIcon mx={0} Icon={BiShare} />

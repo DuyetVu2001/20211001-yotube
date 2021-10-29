@@ -58,18 +58,17 @@ export default function Video({ video }) {
 			<div className="min-w-[476px] max-w-[1754px] mx-auto px-6">
 				<div className="flex pt-6">
 					<div className="flex-grow-1 3md:pr-6">
-						<iframe
+						{/* <iframe
 							className="w-full aspect-16-9"
-							// width="1280"
-							// height="720"
 							src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
 							title="YouTube video player"
 							frameBorder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 							allowFullScreen
-						/>
+						/> */}
 
 						<DescriptionVideo
+							id={video._id}
 							title={title}
 							user={user}
 							likes={video.likes}

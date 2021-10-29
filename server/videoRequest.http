@@ -1,12 +1,12 @@
 GET http://localhost:4000/video?category
 
 ###
-PUT http://localhost:4000/video/like/6179115f3133db253f97004e
-Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjk4YmY5N2M1NjVkZjVhMTU0MTVkOSIsImlhdCI6MTYzNTM0NzM5Nn0.izQPabsUiJHb624g1zwNIMZaOZ2PddBxwhRx1YlRr-o
+PUT http://localhost:4000/video/like/617a18f4a5722d2788d25835
+Token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNTQ3NjA3Nn0.daYZKa7PZ8n832A-UAGqmwqB4gNA9Q0lZXRp-Mvg6dU
 
 ###
-PUT http://localhost:4000/video/dislike/6179115f3133db253f97004e
-Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
+PUT http://localhost:4000/video/dislike/617a18f4a5722d2788d25835
+Token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
 
 ###
 GET http://localhost:4000/video/categories

@@ -24,19 +24,29 @@ const VideoScheme = new Schema({
 		required: true,
 	},
 
-	likes: [
-		{
-			type: Schema.Types.ObjectId,
-			ref: 'User',
-		},
-	],
+	likes: {
+		type: Array,
+		default: [],
+	},
 
-	dislikes: [
-		{
-			type: Schema.Types.ObjectId,
-			ref: 'User',
-		},
-	],
+	dislikes: {
+		type: Array,
+		default: [],
+	},
+
+	// likes: [
+	// 	{
+	// 		type: Schema.Types.ObjectId,
+	// 		ref: 'User',
+	// 	},
+	// ],
+
+	// dislikes: [
+	// 	{
+	// 		type: Schema.Types.ObjectId,
+	// 		ref: 'User',
+	// 	},
+	// ],
 
 	// duration: {
 	// 	type: Number,

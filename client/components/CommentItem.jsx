@@ -3,32 +3,36 @@ import Avatar from '../public/avatar.jpg';
 import TopNavIcon from './TopNavIcon';
 import { BiDislike, BiLike, BiShare } from 'react-icons/bi';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import { format } from 'timeago.js';
 
-export default function CommentItem() {
+export default function CommentItem({ comment: data }) {
+	const {
+		comment,
+		user: { username, avatar },
+		createdAt,
+	} = data;
+
+	console.log(data);
+
 	return (
 		<div className="flex items-start mb-1.5">
 			<div className="relative w-10 h-10 mr-3">
 				<Image
 					className="rounded-full"
-					src={Avatar}
+					src={avatar || Avatar}
 					alt="avatar"
 					layout="fill"
 				/>
 			</div>
 			<div className="flex-1">
 				<p className="">
-					<span className="text-[13px] font-medium">Anh Ban NY</span>{' '}
+					<span className="text-[13px] font-medium">{username}</span>{' '}
 					<span className="text-xs text-gray-color dark:text-dark-text">
-						10 months ago
+						{format(createdAt)}
 					</span>
 				</p>
 				<div className="flex items-start">
-					<p className="flex-1 text-sm">
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas fuga
-						voluptates asperiores magnam, et molestiae ad consequuntur assumenda
-						nam voluptas maiores beatae nemo distinctio natus corrupti, ex
-						blanditiis eius voluptatem?
-					</p>
+					<p className="flex-1 text-sm">{comment}</p>
 					<TopNavIcon mx={0} Icon={BsThreeDotsVertical} />
 				</div>
 				<div className="flex">

@@ -4,7 +4,6 @@
 - fix font family, font weight, icon
 - search be
 - pagination be
-- real-time comment (SWR)
 - refresh token
 - search real-time
 - lazy load
@@ -17,14 +16,5 @@
 - show more description video
 - fix title video when responsive
 - fix desktop layout list videos
-- create unique videoID
-  > 1. LIKE
-
-```mermaid
-graph TD;
-  LIKE --> videoID
-  LIKE --> listUserIDLike
-  LIKE --> listUserIDDisLike
-```
-
-> 1 User luu video da like , unlike
+- check unique videoID
+- refactor videoId page (comment, right side bar, video component)

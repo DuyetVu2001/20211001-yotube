@@ -1,0 +1,16 @@
+GET http://localhost:4000/comment/617a18f4a5722d2788d25835
+
+###
+POST http://localhost:4000/comment
+Content-Type: application/json
+Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
+
+{
+  "comment": "hello world",
+  "videoId": "617a18f4a5722d2788d25835"
+}
+
+###
+DELETE  http://localhost:4000/video/6177ce300c21a39c3f425292
+Content-Type: application/json
+Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU

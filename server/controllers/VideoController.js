@@ -1,4 +1,5 @@
 const Video = require('../models/Video');
+const Comment = require('../models/Comment');
 
 // @ put --> /video/like/:videoId --> add user like video --> public
 exports.likeVideo = async (req, res) => {
@@ -112,15 +113,15 @@ exports.createVideo = async (req, res) => {
 	}
 };
 
-// @ delete --> /video --> delete video --> private
+// @ delete --> /video/videoId --> delete video --> private
 exports.deleteVideo = async (req, res) => {
 	try {
-		// videoID or _id
 		const isDeleted = await Video.findByIdAndDelete(req.params.videoId);
+		await Comment.deleteMany({ videoId: req.params.videoId });
 		if (!isDeleted)
 			return res
 				.status(401)
-				.json({ success: false, message: 'Delete failure!' });
+				.json({ success: false, message: 'Video not found!' });
 
 		res.status(200).json({ success: true });
 	} catch (error) {
@@ -133,6 +134,7 @@ exports.deleteVideo = async (req, res) => {
 exports.deleteAllVideos = async (_req, res) => {
 	try {
 		await Video.deleteMany();
+		await Comment.deleteMany();
 		res.status(200).json({ success: true });
 	} catch (error) {
 		res.status(500).json({ success: false, error });

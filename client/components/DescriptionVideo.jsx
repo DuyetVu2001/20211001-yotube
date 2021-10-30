@@ -133,9 +133,9 @@ export default function DescriptionVideo(props) {
 				</div>
 
 				<div className="flex items-center">
-					<p className="mr-0.5 py-[8px] px-[18px] text-gray-color font-medium text-sm bg-[#0000000D] dark:text-dark-text dark:bg-dark-third cursor-pointer">
+					<div className="mr-0.5 py-[8px] px-[18px] text-gray-color font-medium text-sm bg-[#0000000D] dark:text-dark-text dark:bg-dark-third cursor-pointer">
 						SUBSCRIBED
-					</p>
+					</div>
 					<TopNavIcon Icon={BiLike} />
 				</div>
 			</div>

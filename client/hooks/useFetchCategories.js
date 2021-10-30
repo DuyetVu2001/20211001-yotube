@@ -7,8 +7,8 @@ const fetcher = async (url) => {
 	return res.data.categories;
 };
 
-export default function useFetchCategories(url) {
-	const { data, error } = useSWR(url, fetcher);
+export default function useFetchCategories() {
+	const { data, error } = useSWR('video/categories', fetcher);
 
 	return {
 		data,

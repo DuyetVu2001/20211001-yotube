@@ -13,8 +13,7 @@ export default function Home({ videos: videoList }) {
 	const [loading, setLoading] = useState(true);
 	const [videos, setVideos] = useState(videoList);
 	const { isDisplay } = useContext(IsDisplaySideBarContext);
-	const { data: categoryList, error: categoryError } =
-		useFetchCategories('video/categories');
+	const { data: categoryList, error: categoryError } = useFetchCategories();
 
 	useEffect(() => {
 		if (videos) setLoading(false);

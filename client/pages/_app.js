@@ -1,7 +1,7 @@
 // import 'tailwindcss/tailwind.css';
 import { ThemeProvider } from 'next-themes';
 import Head from 'next/head';
-import TopNav from '../components/layout/TopNav';
+import Header from '../components/layout/Header';
 import AuthProvider from '../contexts/AuthContext';
 import IsDisplaySideBarProvider from '../contexts/IsDisplaySideBarContext';
 import '../styles/global.css';
@@ -31,14 +31,14 @@ function MyApp({ Component, pageProps }) {
 				<link
 					rel="preconnect"
 					href="https://fonts.gstatic.com"
-					crossOrigin={true}
+					crossOrigin="true"
 				/>
 				<link
 					href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
 					rel="stylesheet"
 				/>
 			</Head>
-			{!Component.getLayout && <TopNav />}
+			{!Component.getLayout && <Header />}
 			<Component {...pageProps} />
 		</Provider>
 	);

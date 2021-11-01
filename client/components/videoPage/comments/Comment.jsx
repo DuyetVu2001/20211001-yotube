@@ -1,14 +1,14 @@
 import Image from 'next/image';
-import Avatar from '../../public/avatar.jpg';
-import TopNavIcon from '../TopNavIcon';
+import Avatar from '../../../public/avatar.jpg';
+import TopNavIcon from '../../../components/TopNavIcon';
 import { AiFillLike, AiTwotoneDislike } from 'react-icons/ai';
 import { BiDislike, BiLike, BiShare } from 'react-icons/bi';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { format } from 'timeago.js';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { AuthContext } from '../../contexts/AuthContext';
-import { API } from '../../constant';
+import { AuthContext } from '../../../contexts/AuthContext';
+import { API } from '../../../constant';
 import CommentInput from './CommentInput';
 
 const check = (arr, userId) => arr.includes(userId);

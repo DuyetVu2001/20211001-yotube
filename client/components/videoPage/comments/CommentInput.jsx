@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Avatar from '../../public/avatar.jpg';
+import Avatar from '../../../public/avatar.jpg';
 
 export default function CommentInput({
 	small,

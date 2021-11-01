@@ -21,10 +21,8 @@
 
 - refactor videoId page (comment, right side bar, video component)
 - refactor handleLikeClick func (like video, like comment)
-- refactor input comment (video page, commentItem component, avatar small)
 - refactor button (TopNavIcon)
 - how to manage state in react (https://www.youtube.com/watch?v=FzlurzsCW4M&ab_channel=LeighHalliday)
-- dependency injection?
 - recoil (https://viblo.asia/p/recoil-thu-vien-quan-ly-state-cho-react-924lJPB6KPM)
 - RTK Query vs React Query (https://www.youtube.com/watch?v=LDS1ll93P-s&ab_channel=JackHerrington)
 - filter comments (tending, date)

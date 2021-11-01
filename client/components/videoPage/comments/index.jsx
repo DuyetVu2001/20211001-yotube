@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { API } from '../../constant';
-import useFetchComment from '../../hooks/useFetchComments';
+import { API } from '../../../constant';
+import useFetchComment from '../../../hooks/useFetchComments';
 import CommentInput from './CommentInput';
 import SingleComment from './SingleComment';
 

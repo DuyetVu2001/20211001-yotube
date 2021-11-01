@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import TopNavIcon from './TopNavIcon';
+import TopNavIcon from '../../TopNavIcon';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
 export default function NotificationItem({

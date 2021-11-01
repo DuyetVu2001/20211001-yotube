@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useFetchComment from '../../hooks/useFetchComments';
+import useFetchComment from '../../../hooks/useFetchComments';
 import Comment from './Comment';
 
 export default function SingleComment({ comment, videoId }) {

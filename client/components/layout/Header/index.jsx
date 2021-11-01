@@ -11,16 +11,16 @@ import { BsBell } from 'react-icons/bs';
 import { CgMenuGridO } from 'react-icons/cg';
 import { FaBars, FaMicrophone, FaRegKeyboard } from 'react-icons/fa';
 import { IoCloseOutline } from 'react-icons/io5';
-import { IsDisplaySideBarContext } from '../../contexts/IsDisplaySideBarContext';
-import { AuthContext } from '../../contexts/AuthContext';
-import useClickOutside from '../../hooks/useClickOutside';
-import Avatar from '../../public/avatar.jpg';
-import Logo from '../../public/logo.png';
-import NotificationItem from '../NotificationItem';
-import SideBarItem from '../SideBarItem';
-import TopNavIcon from '../TopNavIcon';
+import { IsDisplaySideBarContext } from '../../../contexts/IsDisplaySideBarContext';
+import { AuthContext } from '../../../contexts/AuthContext';
+import useClickOutside from '../../../hooks/useClickOutside';
+import Avatar from '../../../public/avatar.jpg';
+import Logo from '../../../public/logo.png';
+import NotificationItem from './NotificationItem';
+import SideBarItem from '../../SideBarItem';
+import TopNavIcon from '../../TopNavIcon';
 
-export default function TopNav() {
+export default function Header() {
 	const { auth } = useContext(AuthContext);
 	const { toggleIsDisplay } = useContext(IsDisplaySideBarContext);
 	const [voicePopupDisplay, setVoicePopupDisplay] = useState(false);

@@ -1,6 +1,14 @@
 GET http://localhost:4000/comment/617a18f4a5722d2788d25835
 
 ###
+PUT http://localhost:4000/comment/like/617cfe5cb3b12d32ca9a9a85
+Token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNTQ3NjA3Nn0.daYZKa7PZ8n832A-UAGqmwqB4gNA9Q0lZXRp-Mvg6dU
+
+###
+PUT http://localhost:4000/comment/dislike/617cfe5cb3b12d32ca9a9a85
+Token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
+
+###
 POST http://localhost:4000/comment
 Content-Type: application/json
 Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
@@ -8,6 +16,17 @@ Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzB
 {
   "comment": "hello world",
   "videoId": "617a18f4a5722d2788d25835"
+}
+
+###
+POST http://localhost:4000/comment
+Content-Type: application/json
+Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjkzOGYwN2FiMDlmYzBiMjI2ZjYxMSIsImlhdCI6MTYzNDMwNDExNn0.WZAyZs9vA6YBLcva7vaMbuoxOezbduF6nbjfohax4aU
+
+{
+  "comment": "hello world",
+  "videoId": "617a18f4a5722d2788d25835",
+  "commentId": "617d68fff295b124e44e61ea"
 }
 
 ###

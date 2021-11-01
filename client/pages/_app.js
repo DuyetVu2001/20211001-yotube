@@ -2,8 +2,8 @@
 import { ThemeProvider } from 'next-themes';
 import Head from 'next/head';
 import TopNav from '../components/layout/TopNav';
-import AuthProvider from '../context/AuthContext';
-import IsDisplaySideBarProvider from '../context/IsDisplaySideBarContext';
+import AuthProvider from '../contexts/AuthContext';
+import IsDisplaySideBarProvider from '../contexts/IsDisplaySideBarContext';
 import '../styles/global.css';
 
 export const Provider = ({ children }) => (

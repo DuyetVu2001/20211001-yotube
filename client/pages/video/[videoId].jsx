@@ -1,25 +1,20 @@
 import axios from 'axios';
 import Head from 'next/head';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import CommentItem from '../../components/CommentItem';
+import Comments from '../../components/comments';
 import DescriptionVideo from '../../components/DescriptionVideo';
 import VideoItem from '../../components/VideoItem';
 import { API } from '../../constant';
 import useFetchCategories from '../../hooks/useFetchCategories';
-import useFetchComment from '../../hooks/useFetchComments';
 import useFetchVideos from '../../hooks/useFetchVideos';
-import Avatar from '../../public/avatar.jpg';
 
 export default function Video({ video }) {
 	const router = useRouter();
 	const [query, setQuery] = useState('');
-	const [comment, setComment] = useState('');
 	const [routerLoad, setRouterLoad] = useState(true);
 	const { data, loading, error } = useFetchVideos(`video?category=${query}`);
 	const { data: categoryList, error: categoryError } = useFetchCategories();
-	const { data: comments, error: commentsError } = useFetchComment(video._id);
 
 	useEffect(() => {
 		if (!router.isReady) return;
@@ -37,11 +32,6 @@ export default function Video({ video }) {
 		router.push(`${video.videoId}?category=${category}`, undefined, {
 			shallow: true,
 		});
-	};
-
-	const handleSubmitComment = async () => {
-		await axios.post(API + 'comment', { comment, videoId: video._id });
-		setComment('');
 	};
 
 	const rightSideData = {
@@ -87,51 +77,8 @@ export default function Video({ video }) {
 							<RightSide data={rightSideData} />
 						</div>
 
-						{/* COMMENTS */}
-						<div>
-							<div>
-								<p className="my-6 font-medium">
-									{comments && !commentsError && comments.length} Comments
-								</p>
-								<div className="flex items-start mb-8">
-									<div className="relative w-10 h-10 mr-3">
-										<Image
-											className="rounded-full"
-											src={Avatar}
-											alt="avatar"
-											layout="fill"
-										/>
-									</div>
-									<div className="flex-1">
-										<div className="border-b-[1px] border-[#999] dark:border-dark-border">
-											<input
-												className="w-full text-sm mb-1 placeholder-[#666] dark:placeholder-dark-text outline-none bg-transparent"
-												type="text"
-												placeholder="Add a public comment..."
-												value={comment}
-												onChange={(e) => setComment(e.target.value)}
-											/>
-										</div>
-										<div className="flex justify-end mt-1.5">
-											<div className="mr-0.5 py-[8px] px-[18px] text-gray-color font-medium text-sm dark:text-dark-text  cursor-pointer">
-												CANCEL
-											</div>
-											<div
-												className="mr-0.5 py-[8px] px-[18px] text-[#909090] font-medium text-sm bg-[#0000000D] dark:text-dark-text dark:bg-dark-third cursor-pointer"
-												onClick={handleSubmitComment}
-											>
-												COMMENT
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							{comments &&
-								!commentsError &&
-								comments.map((comment) => (
-									<CommentItem key={comment._id} comment={comment} />
-								))}
-						</div>
+						{/* COMMENT SECTION */}
+						<Comments videoId={video._id} />
 					</div>
 
 					<div className="hidden 3md:block min-w-[300px] max-w-[402px]">

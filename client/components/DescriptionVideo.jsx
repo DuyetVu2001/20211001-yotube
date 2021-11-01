@@ -5,7 +5,7 @@ import { AiFillLike, AiTwotoneDislike } from 'react-icons/ai';
 import { BiDislike, BiLike, BiShare } from 'react-icons/bi';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { API } from '../constant';
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from '../contexts/AuthContext';
 import Avatar from '../public/avatar.jpg';
 import TopNavIcon from './TopNavIcon';
 

@@ -19,6 +19,18 @@ const CommentScheme = new Schema(
 			type: String,
 			required: true,
 		},
+
+		commentId: { type: String },
+
+		likes: {
+			type: Array,
+			default: [],
+		},
+
+		dislikes: {
+			type: Array,
+			default: [],
+		},
 	},
 	{ timestamps: true }
 );

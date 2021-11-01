@@ -3,7 +3,7 @@ import { BsCollectionPlay } from 'react-icons/bs';
 import { HiHome } from 'react-icons/hi';
 import { IoLibraryOutline } from 'react-icons/io5';
 import { VscChevronDown } from 'react-icons/vsc';
-import { IsDisplaySideBarContext } from '../context/IsDisplaySideBarContext';
+import { IsDisplaySideBarContext } from '../contexts/IsDisplaySideBarContext';
 import Avatar from '../public/avatar.jpg';
 import SideBarItem from './SideBarItem';
 

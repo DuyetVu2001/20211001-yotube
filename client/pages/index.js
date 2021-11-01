@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import SideBar from '../components/SideBar';
 import VideoItem from '../components/VideoItem';
 import { API } from '../constant';
-import { IsDisplaySideBarContext } from '../context/IsDisplaySideBarContext';
+import { IsDisplaySideBarContext } from '../contexts/IsDisplaySideBarContext';
 import useFetchCategories from '../hooks/useFetchCategories';
 
 export default function Home({ videos: videoList }) {

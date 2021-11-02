@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import Avatar from '../public/avatar.jpg';
-import TopNavIcon from './TopNavIcon';
+import IconButton from './IconButton';
 import Link from 'next/link';
 
 export default function VideoItem({ row, video }) {
@@ -68,7 +68,7 @@ export default function VideoItem({ row, video }) {
 					</p>
 				</div>
 
-				<TopNavIcon font="text-lg" mx={0} Icon={BsThreeDotsVertical} />
+				<IconButton font="text-lg" mx={0} Icon={BsThreeDotsVertical} />
 			</div>
 		</div>
 	);

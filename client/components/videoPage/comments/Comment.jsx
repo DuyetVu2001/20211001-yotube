@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Avatar from '../../../public/avatar.jpg';
-import TopNavIcon from '../../../components/TopNavIcon';
+import IconButton from '../../../components/IconButton';
 import { AiFillLike, AiTwotoneDislike } from 'react-icons/ai';
 import { BiDislike, BiLike, BiShare } from 'react-icons/bi';
 import { BsThreeDotsVertical } from 'react-icons/bs';
@@ -99,34 +99,38 @@ export default function Comment({ small, comment: data }) {
 				</p>
 				<div className="flex items-start">
 					<p className="flex-1 text-sm">{comment}</p>
-					<TopNavIcon mx={0} Icon={BsThreeDotsVertical} />
+					<IconButton Icon={BsThreeDotsVertical} />
 				</div>
 				<div>
 					<div className="flex items-center">
-						<div className="flex items-center ml-[-10px]">
+						<div className="flex items-center ml-[-10px] mr-2">
 							{isLike ? (
 								<div onClick={() => handleLikeClick('like')}>
-									<TopNavIcon mx={0} Icon={AiFillLike} />
+									<IconButton size="sm" Icon={AiFillLike} />
 								</div>
 							) : (
 								<div onClick={() => handleLikeClick('like')}>
-									<TopNavIcon mx={0} Icon={BiLike} />
+									<IconButton size="sm" Icon={BiLike} />
 								</div>
 							)}
 
-							<p className="text-sm font-medium ml-[-2px]">{countLikes}</p>
+							{countLikes > 0 && (
+								<p className="text-sm font-medium ml-[-2px]">{countLikes}</p>
+							)}
 						</div>
 						<div className="flex items-center">
 							{isDislike ? (
 								<div onClick={() => handleLikeClick('dislike')}>
-									<TopNavIcon mx={0} Icon={AiTwotoneDislike} />
+									<IconButton size="sm" Icon={AiTwotoneDislike} />
 								</div>
 							) : (
 								<div onClick={() => handleLikeClick('dislike')}>
-									<TopNavIcon mx={0} Icon={BiDislike} />
+									<IconButton size="sm" Icon={BiDislike} />
 								</div>
 							)}
-							<p className="text-sm font-medium ml-[-2px]">{countDislikes}</p>
+							{countDislikes > 0 && (
+								<p className="text-sm font-medium ml-[-2px]">{countDislikes}</p>
+							)}
 						</div>
 						{!commentId && (
 							<p

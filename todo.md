@@ -1,6 +1,5 @@
 - Search voice feature
 - your videos page (delete video, add video)
-- animation when click to icon
 - fix font family, font weight, icon
 - search be
 - pagination be
@@ -18,10 +17,8 @@
 - fix desktop layout list videos
 - check unique videoID
 - real-time notification
-
 - refactor videoId page (comment, right side bar, video component)
 - refactor handleLikeClick func (like video, like comment)
-- refactor button (TopNavIcon)
 - how to manage state in react (https://www.youtube.com/watch?v=FzlurzsCW4M&ab_channel=LeighHalliday)
 - recoil (https://viblo.asia/p/recoil-thu-vien-quan-ly-state-cho-react-924lJPB6KPM)
 - RTK Query vs React Query (https://www.youtube.com/watch?v=LDS1ll93P-s&ab_channel=JackHerrington)

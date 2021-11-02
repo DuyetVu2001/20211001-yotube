@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import TopNavIcon from '../../TopNavIcon';
+import IconButton from '../../IconButton';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 
 export default function NotificationItem({
@@ -29,7 +29,7 @@ export default function NotificationItem({
 				<Image className="w-full object-cover" src={thumbnail} layout="fill" />
 			</div>
 
-			<TopNavIcon Icon={BsThreeDotsVertical} />
+			<IconButton Icon={BsThreeDotsVertical} />
 		</div>
 	);
 }

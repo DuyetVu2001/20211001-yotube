@@ -7,7 +7,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { API } from '../../constant';
 import { AuthContext } from '../../contexts/AuthContext';
 import Avatar from '../../public/avatar.jpg';
-import TopNavIcon from '../../components/TopNavIcon';
+import IconButton from '../../components/IconButton';
 
 const check = (arr, userId) => arr.includes(userId);
 
@@ -91,11 +91,11 @@ export default function VideoSection({ video }) {
 						<div className="flex items-center">
 							{isLike ? (
 								<div onClick={() => handleLikeClick('like')}>
-									<TopNavIcon mx={0} Icon={AiFillLike} />
+									<IconButton size="md" Icon={AiFillLike} />
 								</div>
 							) : (
 								<div onClick={() => handleLikeClick('like')}>
-									<TopNavIcon mx={0} Icon={BiLike} />
+									<IconButton size="md" Icon={BiLike} />
 								</div>
 							)}
 							<p className="text-sm font-medium ml-[-2px]">{countLikes}</p>
@@ -103,24 +103,24 @@ export default function VideoSection({ video }) {
 						<div className="flex items-center">
 							{isDislike ? (
 								<div onClick={() => handleLikeClick('dislike')}>
-									<TopNavIcon mx={0} Icon={AiTwotoneDislike} />
+									<IconButton size="md" Icon={AiTwotoneDislike} />
 								</div>
 							) : (
 								<div onClick={() => handleLikeClick('dislike')}>
-									<TopNavIcon mx={0} Icon={BiDislike} />
+									<IconButton size="md" Icon={BiDislike} />
 								</div>
 							)}
 							<p className="text-sm font-medium ml-[-2px]">{countDislikes}</p>
 						</div>
 						<div className="flex items-center">
-							<TopNavIcon mx={0} Icon={BiShare} />
+							<IconButton size="md" Icon={BiShare} />
 							<p className="text-sm font-medium ml-[-2px]">SHARE</p>
 						</div>
 						<div className="flex items-center">
-							<TopNavIcon mx={0} Icon={BiShare} />
+							<IconButton size="md" Icon={BiShare} />
 							<p className="text-sm font-medium ml-[-2px]">SAVE</p>
 						</div>
-						<TopNavIcon mx={0} Icon={BsThreeDotsVertical} />
+						<IconButton Icon={BsThreeDotsVertical} />
 					</div>
 				</div>
 
@@ -147,7 +147,7 @@ export default function VideoSection({ video }) {
 						<div className="mr-0.5 py-[8px] px-[18px] text-gray-color font-medium text-sm bg-[#0000000D] dark:text-dark-text dark:bg-dark-third cursor-pointer">
 							SUBSCRIBED
 						</div>
-						<TopNavIcon Icon={BiLike} />
+						{/* <IconButton Icon={BiLike} /> */}
 					</div>
 				</div>
 			</div>

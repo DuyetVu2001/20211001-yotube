@@ -18,7 +18,7 @@ import Avatar from '../../../public/avatar.jpg';
 import Logo from '../../../public/logo.png';
 import NotificationItem from './NotificationItem';
 import SideBarItem from '../../SideBarItem';
-import TopNavIcon from '../../TopNavIcon';
+import IconButton from '../../IconButton';
 
 export default function Header() {
 	const { auth } = useContext(AuthContext);
@@ -43,7 +43,7 @@ export default function Header() {
 			{/* LEFT */}
 			<div className="flex-center">
 				<div onClick={() => toggleIsDisplay()}>
-					<TopNavIcon className="pt-10" Icon={FaBars} />
+					<IconButton className="pt-10" Icon={FaBars} />
 				</div>
 
 				<div>
@@ -90,7 +90,7 @@ export default function Header() {
 					className="hidden lg:block"
 					onClick={() => setVoicePopupDisplay(true)}
 				>
-					<TopNavIcon bg Icon={FaMicrophone} />
+					<IconButton bg Icon={FaMicrophone} />
 				</div>
 			</div>
 
@@ -106,7 +106,7 @@ export default function Header() {
 							className="absolute top-3 right-3"
 							onClick={() => setVoicePopupDisplay(false)}
 						>
-							<TopNavIcon Icon={IoCloseOutline} />
+							<IconButton Icon={IoCloseOutline} />
 						</div>
 						<p className="text-2xl font-medium pt-12 pl-6">Listening...</p>
 						<div className="absolute left-0 bottom-12 w-full flex justify-center">
@@ -121,7 +121,7 @@ export default function Header() {
 			<div className="flex-center">
 				<div ref={videoRef} className="relative">
 					<div onMouseUp={() => setVideoDisplay(!videoDisplay)}>
-						<TopNavIcon Icon={AiOutlineVideoCameraAdd} />
+						<IconButton Icon={AiOutlineVideoCameraAdd} />
 					</div>
 
 					{videoDisplay && (
@@ -146,7 +146,7 @@ export default function Header() {
 
 				<div ref={menuRef} className="relative">
 					<div onMouseUp={() => setMenuDisplay(!menuDisplay)}>
-						<TopNavIcon Icon={CgMenuGridO} />
+						<IconButton Icon={CgMenuGridO} />
 					</div>
 
 					{menuDisplay && (
@@ -199,14 +199,14 @@ export default function Header() {
 
 				<div ref={bellRef} className="relative">
 					<div onMouseUp={() => setBellDisplay(!bellDisplay)}>
-						<TopNavIcon Icon={BsBell} />
+						<IconButton Icon={BsBell} />
 					</div>
 
 					{bellDisplay && (
 						<div className="absolute right-0 w-[478px] bg-white dark:bg-dark-second shadow">
 							<div className="flex items-center justify-between h-12 shadow">
 								<p className="ml-4 text-lg font-medium">Notifications</p>
-								<TopNavIcon Icon={AiOutlinePlaySquare} />
+								<IconButton Icon={AiOutlinePlaySquare} />
 							</div>
 							<div className="max-h-[590px] overflow-auto">
 								<NotificationItem

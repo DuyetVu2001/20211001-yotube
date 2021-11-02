@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useTheme } from 'next-themes';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import SideBar from '../components/SideBar';
@@ -11,6 +10,7 @@ import useFetchCategories from '../hooks/useFetchCategories';
 export default function Home({ videos: videoList }) {
 	const router = useRouter();
 	const [loading, setLoading] = useState(true);
+	const [categoryBtnActive, setCategoryBtnActive] = useState('');
 	const [videos, setVideos] = useState(videoList);
 	const { isDisplay } = useContext(IsDisplaySideBarContext);
 	const { data: categoryList, error: categoryError } = useFetchCategories();
@@ -19,7 +19,8 @@ export default function Home({ videos: videoList }) {
 		if (videos) setLoading(false);
 	}, []);
 
-	const handleClick = async (category) => {
+	const handleCategoryClick = async (category) => {
+		setCategoryBtnActive(category);
 		setLoading(true);
 		const res = await axios.get(API + 'video?category=' + category);
 		setVideos(res.data.videos);
@@ -42,8 +43,12 @@ export default function Home({ videos: videoList }) {
 			>
 				<div className="pl-6 flex gap-3">
 					<p
-						className={`leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl text-white text-sm bg-[#000] dark:bg-white dark:text-black cursor-pointer`}
-						onClick={() => handleClick('')}
+						className={`leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl text-sm dark:bg-white dark:text-black cursor-pointer ${
+							categoryBtnActive === ''
+								? 'text-white bg-[#000]'
+								: 'text-black bg-[#eee] hover:bg-[#e2e2e2]'
+						}`}
+						onClick={() => handleCategoryClick('')}
 					>
 						All
 					</p>
@@ -52,8 +57,12 @@ export default function Home({ videos: videoList }) {
 						categoryList.map((category) => (
 							<p
 								key={category}
-								className={`leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl text-white text-sm bg-[#000] dark:bg-white dark:text-black cursor-pointer`}
-								onClick={() => handleClick(category)}
+								className={`leading-[30px] px-3 border-[1px] border-[#ccc] rounded-3xl capitalize text-sm dark:bg-white dark:text-black cursor-pointer ${
+									categoryBtnActive === category
+										? 'text-white bg-[#000]'
+										: 'text-black bg-[#eee] hover:bg-[#e2e2e2]'
+								}`}
+								onClick={() => handleCategoryClick(category)}
 							>
 								{category}
 							</p>

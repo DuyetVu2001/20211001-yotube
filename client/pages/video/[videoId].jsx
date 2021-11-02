@@ -13,6 +13,7 @@ export default function Video({ video }) {
 	const router = useRouter();
 	const [query, setQuery] = useState('');
 	const [routerLoad, setRouterLoad] = useState(true);
+	const [categoryBtnActive, setCategoryBtnActive] = useState('');
 	const { data, loading, error } = useFetchVideos(`video?category=${query}`);
 	const { data: categoryList, error: categoryError } = useFetchCategories();
 
@@ -27,6 +28,7 @@ export default function Video({ video }) {
 	}
 
 	const handleClickCategory = (category) => {
+		setCategoryBtnActive(category);
 		setQuery(category);
 		router.push(`${video.videoId}?category=${category}`, undefined, {
 			shallow: true,
@@ -42,6 +44,7 @@ export default function Video({ video }) {
 		categoryList,
 		categoryError,
 		handleClickCategory,
+		categoryBtnActive,
 	};
 
 	return (

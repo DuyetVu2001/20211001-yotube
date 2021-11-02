@@ -1,23 +1,24 @@
 - Search voice feature
-- your videos page (delete video, add video)
-- fix font family, font weight, icon
 - search be
-- pagination be
-- refresh token
-- search real-time
+- fix font family, font weight, icon
 - lazy load
 - scroll bar
+- refresh token
+- search real-time
 - loading
-- overlay
-- active category
-- subscribe
-- view counter
+- your videos page (delete video, add video)
+- pagination be (video, comment)
+- overlay SideBar
 - show more description video
-- fix title video when responsive
 - fix desktop layout list videos
-- check unique videoID
 - real-time notification
 - how to manage state in react (https://www.youtube.com/watch?v=FzlurzsCW4M&ab_channel=LeighHalliday)
-- recoil (https://viblo.asia/p/recoil-thu-vien-quan-ly-state-cho-react-924lJPB6KPM)
 - RTK Query vs React Query (https://www.youtube.com/watch?v=LDS1ll93P-s&ab_channel=JackHerrington)
-- filter comments (tending, date)
+- check unique videoID
+- filter comments (trending, date) (be)
+- comment UI
+- UI when video list nothing (video page)
+
+- subscribe - display sub list
+- view counter
+- fix title video when responsive

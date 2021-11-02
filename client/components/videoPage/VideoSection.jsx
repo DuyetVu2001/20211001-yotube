@@ -1,8 +1,12 @@
+import axios from 'axios';
 import Image from 'next/image';
+import { useContext, useEffect, useState } from 'react';
 import { AiFillLike, AiTwotoneDislike } from 'react-icons/ai';
 import { BiDislike, BiLike, BiShare } from 'react-icons/bi';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import IconButton from '../../components/IconButton';
+import { API } from '../../constant';
+import { AuthContext } from '../../contexts/AuthContext';
 import useHandleLike from '../../hooks/useHandleLike';
 import Avatar from '../../public/avatar.jpg';
 
@@ -10,13 +14,25 @@ export default function VideoSection({ video }) {
 	const {
 		_id: id,
 		title,
-		user: { username, avatar },
+		user: { _id: userId, username, avatar, subscribers },
 		likes,
 		dislikes,
 		videoId,
 	} = video;
+	const { auth } = useContext(AuthContext);
+	const [isSub, setIsSub] = useState(false);
 	const { isLike, isDislike, countLikes, countDislikes, handleLikeClick } =
 		useHandleLike({ likes, dislikes, id });
+
+	useEffect(() => {
+		if (!auth.user || !subscribers) return;
+		if (subscribers.includes(auth.user._id)) setIsSub(true);
+	}, [auth.user, subscribers]);
+
+	const handleSubscribe = async () => {
+		await axios.put(API + 'user/subscriber', { subscriptionId: userId });
+		setIsSub(!isSub);
+	};
 
 	return (
 		<>
@@ -98,7 +114,14 @@ export default function VideoSection({ video }) {
 					</div>
 
 					<div className="flex items-center">
-						<div className="mr-0.5 py-[8px] px-[18px] text-gray-color font-medium text-sm bg-[#0000000D] dark:text-dark-text dark:bg-dark-third cursor-pointer">
+						<div
+							className={`mr-0.5 py-[8px] px-[18px] font-medium text-sm dark:text-dark-text dark:bg-dark-third cursor-pointer ${
+								isSub
+									? 'bg-[#CC0000] text-white'
+									: 'bg-[#0000000D] text-gray-color'
+							}`}
+							onClick={handleSubscribe}
+						>
 							SUBSCRIBED
 						</div>
 						{/* <IconButton Icon={BiLike} /> */}

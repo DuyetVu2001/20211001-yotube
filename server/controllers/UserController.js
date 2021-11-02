@@ -6,6 +6,38 @@ const jwt = require('jsonwebtoken');
 dotenv.config();
 const { SECRET_KEY } = process.env;
 
+// @ put --> /user/subscriber --> subscriber --> private
+exports.subscriber = async (req, res) => {
+	if (!req.body.subscriptionId)
+		return res
+			.status(400)
+			.json({ success: false, message: 'Subscriber id is required!' });
+
+	try {
+		const user = await User.findById(req.body.subscriptionId);
+		const isSub = user.subscribers.includes(req.user.id);
+
+		if (isSub) {
+			await User.findByIdAndUpdate(req.user.id, {
+				$pull: { subscriptions: req.body.subscriptionId },
+			});
+			await User.findByIdAndUpdate(req.body.subscriptionId, {
+				$pull: { subscribers: req.user.id },
+			});
+		} else {
+			await User.findByIdAndUpdate(req.user.id, {
+				$push: { subscriptions: req.body.subscriptionId },
+			});
+			await User.findByIdAndUpdate(req.body.subscriptionId, {
+				$push: { subscribers: req.user.id },
+			});
+		}
+		res.status(200).json({ success: true });
+	} catch (error) {
+		res.status(500).json({ success: false, error });
+	}
+};
+
 // @ post --> /user/register --> register --> public
 exports.register = async (req, res) => {
 	try {

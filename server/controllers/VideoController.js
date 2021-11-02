@@ -64,9 +64,13 @@ exports.getVideos = async (req, res) => {
 		if (category && category !== 'undefined')
 			videos = await Video.find({ category }).populate(
 				'user',
-				'username avatar'
+				'username avatar subscribers'
 			);
-		else videos = await Video.find().populate('user', 'username avatar');
+		else
+			videos = await Video.find().populate(
+				'user',
+				'username avatar subscribers'
+			);
 
 		res.status(200).json({ success: true, videos });
 	} catch (error) {
@@ -90,7 +94,7 @@ exports.getVideo = async (req, res) => {
 	try {
 		const video = await Video.findOne({ videoId: req.params.videoId }).populate(
 			'user',
-			'username avatar'
+			'username avatar subscribers'
 		);
 		res.status(200).json({ success: true, video });
 	} catch (error) {

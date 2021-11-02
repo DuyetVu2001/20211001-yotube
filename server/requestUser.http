@@ -1,6 +1,15 @@
 GET http://localhost:4000/user
 
 ###
+PUT http://localhost:4000/user/subscriber
+Content-Type: application/json
+Token: Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjk4YmY5N2M1NjVkZjVhMTU0MTVkOSIsImlhdCI6MTYzNTg2OTg2M30.XXkVUMSYHLaZbNDELJDSrtwK4GT9PkyJTqAtMeR5wDo
+
+{
+  "subscriptionId": "616938f07ab09fc0b226f611"
+}
+
+###
 POST http://localhost:4000/user/register
 Content-Type: application/json
 

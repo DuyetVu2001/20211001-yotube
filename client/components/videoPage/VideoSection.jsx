@@ -1,15 +1,10 @@
-import axios from 'axios';
 import Image from 'next/image';
-import { useContext, useEffect, useState } from 'react';
 import { AiFillLike, AiTwotoneDislike } from 'react-icons/ai';
 import { BiDislike, BiLike, BiShare } from 'react-icons/bi';
 import { BsThreeDotsVertical } from 'react-icons/bs';
-import { API } from '../../constant';
-import { AuthContext } from '../../contexts/AuthContext';
-import Avatar from '../../public/avatar.jpg';
 import IconButton from '../../components/IconButton';
-
-const check = (arr, userId) => arr.includes(userId);
+import useHandleLike from '../../hooks/useHandleLike';
+import Avatar from '../../public/avatar.jpg';
 
 export default function VideoSection({ video }) {
 	const {
@@ -20,49 +15,8 @@ export default function VideoSection({ video }) {
 		dislikes,
 		videoId,
 	} = video;
-	const { auth } = useContext(AuthContext);
-	const [isLike, setIsLike] = useState(false);
-	const [isDislike, setIsDislike] = useState(false);
-	const [countLikes, setCountLikes] = useState(likes.length);
-	const [countDislikes, setCountDislikes] = useState(dislikes.length);
-
-	useEffect(() => {
-		if (!auth?.user?._id) return;
-		setIsLike(check(likes, auth?.user?._id));
-		setIsDislike(check(dislikes, auth?.user?._id));
-	}, [auth?.user?._id]);
-
-	const handleLikeClick = async (action) => {
-		await axios.put(`${API}video/${action}/${id}`);
-
-		if (action === 'like') {
-			if (isLike) {
-				setIsLike(false);
-				setCountLikes((state) => state - 1);
-			} else if (isDislike) {
-				setIsLike(true);
-				setCountLikes((state) => state + 1);
-				setIsDislike(false);
-				setCountDislikes((state) => state - 1);
-			} else {
-				setIsLike(true);
-				setCountLikes((state) => state + 1);
-			}
-		} else {
-			if (isDislike) {
-				setIsDislike(false);
-				setCountDislikes((state) => state - 1);
-			} else if (isLike) {
-				setIsDislike(true);
-				setCountDislikes((state) => state + 1);
-				setIsLike(false);
-				setCountLikes((state) => state - 1);
-			} else {
-				setIsDislike(true);
-				setCountDislikes((state) => state + 1);
-			}
-		}
-	};
+	const { isLike, isDislike, countLikes, countDislikes, handleLikeClick } =
+		useHandleLike({ likes, dislikes, id });
 
 	return (
 		<>

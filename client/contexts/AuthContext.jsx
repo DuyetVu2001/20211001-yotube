@@ -14,7 +14,7 @@ export default function AuthProvider({ children }) {
 
 	useEffect(() => {
 		const login = async () => {
-			const res = await axios.post(API + 'auth/login', {
+			const res = await axios.post(API + 'user/login', {
 				username: 'Thao Cho',
 				password: '123',
 			});

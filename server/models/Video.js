@@ -34,10 +34,10 @@ const VideoScheme = new Schema({
 		default: [],
 	},
 
-	// views: {
-	// 	type: Number,
-	// 	required: true,
-	// },
+	totalViews: {
+		type: Number,
+		default: 0,
+	},
 });
 
 module.exports = mongoose.model('Video', VideoScheme);

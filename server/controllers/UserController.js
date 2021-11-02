@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 dotenv.config();
 const { SECRET_KEY } = process.env;
 
-// @ post --> /auth/register --> register --> public
+// @ post --> /user/register --> register --> public
 exports.register = async (req, res) => {
 	try {
 		const { username, password } = req.body;
@@ -28,7 +28,7 @@ exports.register = async (req, res) => {
 	}
 };
 
-// @ post --> /auth/login --> log in --> public
+// @ post --> /user/login --> log in --> public
 exports.login = async (req, res) => {
 	try {
 		const { username, password } = req.body;
@@ -56,7 +56,7 @@ exports.login = async (req, res) => {
 	}
 };
 
-// @ post --> /auth --> get all user --> public
+// @ post --> /user --> get all user --> public
 exports.users = async (_req, res) => {
 	try {
 		const users = await User.find();

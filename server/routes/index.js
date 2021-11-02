@@ -1,9 +1,9 @@
-const authRoute = require('./auth');
+const userRoute = require('./user');
 const videoRoute = require('./video');
 const commentRoute = require('./comment');
 
 function route(app) {
-	app.use('/auth', authRoute);
+	app.use('/user', userRoute);
 	app.use('/video', videoRoute);
 	app.use('/comment', commentRoute);
 }

@@ -15,6 +15,19 @@ const UserScheme = new mongoose.Schema({
 		type: String,
 		required: false,
 	},
+
+	subscribers: {
+		type: Array,
+		default: [],
+	},
+
+	subscriptions: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'User',
+			default: [],
+		},
+	],
 });
 
 module.exports = mongoose.model('User', UserScheme);

@@ -1,7 +1,7 @@
 const Video = require('../models/Video');
 const Comment = require('../models/Comment');
 
-// @ put --> /video/like/:videoId --> add user like video --> public
+// @ put --> /video/like/:videoId --> add user like video --> private
 exports.likeVideo = async (req, res) => {
 	try {
 		const video = await Video.findById(req.params.videoId);
@@ -28,7 +28,7 @@ exports.likeVideo = async (req, res) => {
 	}
 };
 
-// @ put --> /video/dislike/:videoId --> add user dislike video --> public
+// @ put --> /video/dislike/:videoId --> add user dislike video --> private
 exports.dislikeVideo = async (req, res) => {
 	try {
 		const video = await Video.findById(req.params.videoId);

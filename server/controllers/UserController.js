@@ -65,7 +65,9 @@ exports.login = async (req, res) => {
 	try {
 		const { username, password } = req.body;
 		// Check user exist, password
-		const isUserExist = await User.findOne({ username });
+		const isUserExist = await User.findOne({ username }).populate(
+			'subscriptions'
+		);
 		// Decrypt password
 		const bytes = CryptoJS.AES.decrypt(isUserExist.password, SECRET_KEY);
 		const originalPassword = bytes.toString(CryptoJS.enc.Utf8);

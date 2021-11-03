@@ -1,8 +1,8 @@
 import Image from 'next/image';
+import Avatar from '../public/avatar.jpg';
 
 export default function SideBarItem({
 	large,
-	color,
 	space,
 	pl,
 	active,
@@ -39,13 +39,14 @@ export default function SideBarItem({
 				>
 					<div className="w-9">
 						{Icon ? (
-							<Icon
-								className="text-2xl dark:text-white"
-								// color={color || 'black'}
-							/>
+							<Icon className="text-2xl dark:text-white" />
 						) : (
 							<div className="relative w-6 h-6">
-								<Image className="rounded-full" layout="fill" src={image} />
+								<Image
+									className="rounded-full"
+									layout="fill"
+									src={image || Avatar}
+								/>
 							</div>
 						)}
 					</div>

@@ -18,7 +18,7 @@
 - filter comments (trending, date) (be)
 - comment UI
 - UI when video list nothing (video page)
+- avatar default
 
-- subscribe - display sub list
 - view counter
 - fix title video when responsive

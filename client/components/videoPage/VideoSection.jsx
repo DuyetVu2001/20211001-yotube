@@ -117,8 +117,8 @@ export default function VideoSection({ video }) {
 						<div
 							className={`mr-0.5 py-[8px] px-[18px] font-medium text-sm dark:text-dark-text dark:bg-dark-third cursor-pointer ${
 								isSub
-									? 'bg-[#CC0000] text-white'
-									: 'bg-[#0000000D] text-gray-color'
+									? 'bg-[#0000000D] text-gray-color'
+									: 'bg-[#CC0000] text-white'
 							}`}
 							onClick={handleSubscribe}
 						>

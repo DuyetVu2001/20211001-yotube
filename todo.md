@@ -20,5 +20,4 @@
 - UI when video list nothing (video page)
 - avatar default
 
-- view counter
 - fix title video when responsive

@@ -18,20 +18,24 @@ export default function VideoSection({ video }) {
 		likes,
 		dislikes,
 		videoId,
+		totalViews,
 	} = video;
 	const { auth } = useContext(AuthContext);
 	const [isSub, setIsSub] = useState(false);
+	const [totalSub, setTotalSub] = useState(0);
 	const { isLike, isDislike, countLikes, countDislikes, handleLikeClick } =
 		useHandleLike({ likes, dislikes, id });
 
 	useEffect(() => {
 		if (!auth.user || !subscribers) return;
 		if (subscribers.includes(auth.user._id)) setIsSub(true);
+		setTotalSub(subscribers.length);
 	}, [auth.user, subscribers]);
 
 	const handleSubscribe = async () => {
 		await axios.put(API + 'user/subscriber', { subscriptionId: userId });
 		setIsSub(!isSub);
+		isSub ? setTotalSub(totalSub - 1) : setTotalSub(totalSub + 1);
 	};
 
 	return (
@@ -53,7 +57,9 @@ export default function VideoSection({ video }) {
 
 				<div className="3sm:flex mt-[6px]">
 					<p className="flex-1 mb-3 text-sm">
-						<span className="font-medium">3,888 views • Jul 19, 2021 • </span>
+						<span className="font-medium">
+							{totalViews + 1} views • Jul 19, 2021 •{' '}
+						</span>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
 					</p>
 
@@ -108,7 +114,7 @@ export default function VideoSection({ video }) {
 						<div className="">
 							<p className="font-medium text-sm">{username}</p>
 							<p className="font-medium text-xs text-gray-color dark:text-dark-text">
-								200k subscribers
+								{totalSub} subscribers
 							</p>
 						</div>
 					</div>

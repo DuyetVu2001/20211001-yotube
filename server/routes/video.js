@@ -10,10 +10,12 @@ const {
 	getCategories,
 	likeVideo,
 	dislikeVideo,
+	upViewVideo,
 } = require('../controllers/VideoController');
 
 const verifyToken = require('../middleware/verifyToken');
 
+router.put('/up-view/:videoId', upViewVideo);
 router.put('/like/:videoId', verifyToken, likeVideo);
 router.put('/dislike/:videoId', verifyToken, dislikeVideo);
 

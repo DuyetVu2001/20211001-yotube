@@ -18,6 +18,10 @@ export default function Video({ video }) {
 	const { data: categoryList, error: categoryError } = useFetchCategories();
 
 	useEffect(() => {
+		axios.put(API + 'video/up-view/' + video._id);
+	}, []);
+
+	useEffect(() => {
 		if (!router.isReady) return;
 		setRouterLoad(false);
 		setQuery(() => router.query.category);
@@ -68,7 +72,7 @@ export default function Video({ video }) {
 					</div>
 
 					{/* VIDEO LIST PC */}
-					<div className="hidden 3md:block min-w-[300px] max-w-[402px]">
+					<div className="hidden 3md:block min-w-[300px] w-[402px]">
 						<VideoList {...videoListProps} />
 					</div>
 				</div>

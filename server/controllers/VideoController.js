@@ -1,6 +1,19 @@
 const Video = require('../models/Video');
 const Comment = require('../models/Comment');
 
+// @ put --> /video/up-view/:videoId --> update view --> public
+exports.upViewVideo = async (req, res) => {
+	try {
+		await Video.findByIdAndUpdate(req.params.videoId, {
+			$inc: { totalViews: 1 },
+		});
+
+		return res.status(200).json({ success: true });
+	} catch (error) {
+		res.status(500).json({ success: false, error });
+	}
+};
+
 // @ put --> /video/like/:videoId --> add user like video --> private
 exports.likeVideo = async (req, res) => {
 	try {

@@ -58,7 +58,10 @@ export default function VideoSection({ video }) {
 				<div className="3sm:flex mt-[6px]">
 					<p className="flex-1 mb-3 text-sm">
 						<span className="font-medium">
-							{totalViews + 1} views • Jul 19, 2021 •{' '}
+							{video.totalViews > 0
+								? video.totalViews + 1 + ' views'
+								: video.totalViews + 1 + ' view'}{' '}
+							• Jul 19, 2021 •{' '}
 						</span>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
 					</p>

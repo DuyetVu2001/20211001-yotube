@@ -47,7 +47,11 @@ export default function VideoItem({ row, video }) {
 				<div className="flex-1 mr-2">
 					<Link href={`/video/${videoId}`}>
 						<a>
-							<h3 className={`${row && 'text-sm'} leading-5 font-bold`}>
+							<h3
+								className={`${
+									row && 'text-sm'
+								} line-clamp-2 leading-5 font-bold`}
+							>
 								{title}
 							</h3>
 						</a>
@@ -64,7 +68,9 @@ export default function VideoItem({ row, video }) {
 							row ? 'text-xs' : 'text-sm'
 						} text-[#606060] dark:text-dark-text font-medium`}
 					>
-						144k views
+						{video.totalViews > 1
+							? video.totalViews + ' views'
+							: video.totalViews + ' view'}{' '}
 					</p>
 				</div>
 

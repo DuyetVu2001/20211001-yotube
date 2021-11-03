@@ -20,4 +20,4 @@
 - UI when video list nothing (video page)
 - avatar default
 
-- fix title video when responsive
+- time up video

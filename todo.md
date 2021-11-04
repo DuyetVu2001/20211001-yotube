@@ -9,7 +9,6 @@
 - your videos page (delete video, add video)
 - pagination be (video, comment)
 - overlay SideBar
-- show more description video
 - fix desktop layout list videos
 - real-time notification
 - how to manage state in react (https://www.youtube.com/watch?v=FzlurzsCW4M&ab_channel=LeighHalliday)
@@ -20,4 +19,6 @@
 - UI when video list nothing (video page)
 - avatar default
 
-- time up video
+- for of in each, map, filter, reduce,....
+
+- show more description video

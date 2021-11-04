@@ -1,14 +1,17 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import { format } from 'timeago.js';
 import Avatar from '../public/avatar.jpg';
 import IconButton from './IconButton';
-import Link from 'next/link';
 
 export default function VideoItem({ row, video }) {
 	const {
 		title,
 		videoId,
 		user: { username, avatar },
+		totalViews,
+		createdAt,
 	} = video;
 
 	let containerClass = 'w-full';
@@ -68,9 +71,8 @@ export default function VideoItem({ row, video }) {
 							row ? 'text-xs' : 'text-sm'
 						} text-[#606060] dark:text-dark-text font-medium`}
 					>
-						{video.totalViews > 1
-							? video.totalViews + ' views'
-							: video.totalViews + ' view'}{' '}
+						{totalViews > 1 ? totalViews + ' views' : totalViews + ' view'} •{' '}
+						{format(createdAt)}
 					</p>
 				</div>
 

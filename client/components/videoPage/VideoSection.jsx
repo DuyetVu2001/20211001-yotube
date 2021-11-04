@@ -1,4 +1,5 @@
 import axios from 'axios';
+import moment from 'moment';
 import Image from 'next/image';
 import { useContext, useEffect, useState } from 'react';
 import { AiFillLike, AiTwotoneDislike } from 'react-icons/ai';
@@ -19,6 +20,7 @@ export default function VideoSection({ video }) {
 		dislikes,
 		videoId,
 		totalViews,
+		createdAt,
 	} = video;
 	const { auth } = useContext(AuthContext);
 	const [isSub, setIsSub] = useState(false);
@@ -58,10 +60,10 @@ export default function VideoSection({ video }) {
 				<div className="3sm:flex mt-[6px]">
 					<p className="flex-1 mb-3 text-sm">
 						<span className="font-medium">
-							{video.totalViews > 0
-								? video.totalViews + 1 + ' views'
-								: video.totalViews + 1 + ' view'}{' '}
-							• Jul 19, 2021 •{' '}
+							{totalViews > 0
+								? totalViews + 1 + ' views'
+								: totalViews + 1 + ' view'}{' '}
+							• {moment(createdAt).format('ll')} •{' '}
 						</span>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
 					</p>

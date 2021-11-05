@@ -59,7 +59,7 @@ export default function Comment({ small, comment: data }) {
 					<IconButton Icon={BsThreeDotsVertical} />
 				</div>
 				<div>
-					<div className="flex items-center">
+					<div className="flex items-center -mt-5">
 						<div className="flex items-center ml-[-10px] mr-2">
 							{isLike ? (
 								<div onClick={() => handleLikeClick('like')}>

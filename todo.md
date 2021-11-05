@@ -1,24 +1,17 @@
-- Search voice feature
 - search be
-- fix font family, font weight, icon
 - lazy load
-- scroll bar
-- refresh token
-- search real-time
 - loading
-- your videos page (delete video, add video)
 - pagination be (video, comment)
-- overlay SideBar
-- fix desktop layout list videos
+- search real-time
+- your videos page (delete video, add video)
 - real-time notification
-- how to manage state in react (https://www.youtube.com/watch?v=FzlurzsCW4M&ab_channel=LeighHalliday)
-- RTK Query vs React Query (https://www.youtube.com/watch?v=LDS1ll93P-s&ab_channel=JackHerrington)
 - check unique videoID
 - filter comments (trending, date) (be)
-- comment UI
 - UI when video list nothing (video page)
 - avatar default
-
 - for of in each, map, filter, reduce,....
+- review code mysql, personal website
+- display comment when create UI + auto focus input
 
-- show more description video
+- refresh token
+- scroll bar

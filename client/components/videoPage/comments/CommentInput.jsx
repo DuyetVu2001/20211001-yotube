@@ -7,9 +7,10 @@ export default function CommentInput({
 	setValue,
 	handleSubmit,
 	hiddenInput,
+	noCancel,
 }) {
 	return (
-		<div className="flex items-start mb-8">
+		<div className="flex items-start">
 			<div className={`relative ${small ? 'w-6 h-6' : 'w-10 h-10'} mr-3`}>
 				<Image
 					className="rounded-full"
@@ -35,14 +36,20 @@ export default function CommentInput({
 					/>
 				</div>
 				<div className="flex justify-end mt-1.5">
+					{!noCancel && (
+						<div
+							className="mr-0.5 py-[8px] px-[18px] text-gray-color font-medium text-sm dark:text-dark-text  cursor-pointer"
+							onClick={() => hiddenInput && hiddenInput()}
+						>
+							CANCEL
+						</div>
+					)}
 					<div
-						className="mr-0.5 py-[8px] px-[18px] text-gray-color font-medium text-sm dark:text-dark-text  cursor-pointer"
-						onClick={() => hiddenInput && hiddenInput()}
-					>
-						CANCEL
-					</div>
-					<div
-						className="mr-0.5 py-[8px] px-[18px] text-[#909090] font-medium text-sm bg-[#0000000D] dark:text-dark-text dark:bg-dark-third cursor-pointer"
+						className={`mr-0.5 py-[8px] px-[18px]  font-medium text-sm cursor-pointer ${
+							value.length > 0
+								? 'text-white bg-[#065FD4] dark:text-gray-900 dark:bg-[#3EA6FF]'
+								: 'text-[#909090] bg-[#0000000D] dark:text-dark-text dark:bg-dark-third'
+						} `}
 						onClick={() => {
 							if (!value) return;
 							handleSubmit();

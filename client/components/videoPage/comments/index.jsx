@@ -16,7 +16,7 @@ export default function Comments({ videoId }) {
 
 	return (
 		<div>
-			<div>
+			<div className="mb-8">
 				<p className="my-6 font-medium">
 					{comments && !commentsError && comments.length > 1
 						? `${comments?.length} Comments`
@@ -26,6 +26,7 @@ export default function Comments({ videoId }) {
 					value={comment}
 					setValue={setComment}
 					handleSubmit={handleCommentSubmit}
+					noCancel
 				/>
 			</div>
 			{comments &&

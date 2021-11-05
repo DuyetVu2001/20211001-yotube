@@ -329,7 +329,7 @@ export default function Header() {
 									pl="sm"
 									space="sm"
 									Icon={AiOutlinePlaySquare}
-									title="Go live"
+									title="Toggle theme"
 								/>
 							</div>
 							<SideBarItem

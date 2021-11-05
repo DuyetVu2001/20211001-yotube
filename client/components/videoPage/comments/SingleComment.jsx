@@ -10,11 +10,11 @@ export default function SingleComment({ comment, videoId }) {
 	);
 
 	return (
-		<div className="">
+		<div className="mb-4">
 			<Comment key={comment._id} comment={comment} />
 			<div className="ml-[52px]">
 				<p
-					className="text-xs font-bold text-blue-500 cursor-pointer"
+					className="mb-3 text-xs font-bold text-blue-500 cursor-pointer"
 					onClick={() => setShowReplies(!showReplies)}
 				>
 					{countComment !== 0 &&

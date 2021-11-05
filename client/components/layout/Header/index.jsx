@@ -47,14 +47,6 @@ export default function Header() {
 				</div>
 
 				<div>
-					{/* <div className="flex ml-2">
-					<FaYoutube className="relative text-red-500 text-3xl" />
-					<h1 className="text-xl font-semibold tracking-[-2px]">
-						YouTube{' '}
-						<span className="absolute top-[8px] text-xs font-normal tracking-[0] text-gray-color">
-							vn
-						</span>
-					</h1> */}
 					<Link href="/">
 						<a>
 							<div className="relative w-[90px] h-[20px] ml-3">
@@ -64,6 +56,9 @@ export default function Header() {
 									alt="avatar"
 									layout="fill"
 								/>
+								<span className="absolute top-[-8px] right-[-16px] text-xs font-normal tracking-[0] text-gray-color">
+									vn
+								</span>
 							</div>
 						</a>
 					</Link>
